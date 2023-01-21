@@ -1,0 +1,66 @@
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'PT Serif', serif;
+}
+
+#home {
+    background-color: white;
+    color: black;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 1.05em;
+    max-width: 720px;
+}
+
+.row-center {
+    text-align: center;
+}
+
+.row-justify {
+    text-align: justify;
+}
+
+.row-footer {
+    text-align: center;
+    /*color: #D0D3D4;*/
+}
+
+.row {
+    margin: auto;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+ul li {
+    margin: 1em 0;
+}
+
+.papertitle {
+    font-style: italic;
+    !font-weight: 600;
+}
+
+.distinction {
+    color: #f15a51;
+}
+
+a {
+    color: #3366bb;
+    text-decoration: none;
+    box-shadow: 0 -1px 0 0 white inset, 0 -3px 0 0 transparent inset;
+}
+a:hover {
+    transition: all 0.3s ease-out;
+    box-shadow: 0 -0.5px 0 0 white inset, 0 -3px 0 0 #3366bb inset;
+}
+a:focus {
+    color: #3366bb;
+    text-decoration: none;
+}
+
+#footer {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
