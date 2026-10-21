@@ -108,7 +108,7 @@ a:focus {
     display: block;
     width: 180px;
     height: 180px;
-    border: 1px solid #000;
+    border: 0;
     border-radius: 20px;
 }
 
