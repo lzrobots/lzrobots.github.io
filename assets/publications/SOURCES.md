@@ -187,3 +187,10 @@ Each homepage entry includes an original 1–2 sentence introduction based on it
 | driveweaver | https://arxiv.org/abs/2606.31918 |
 | pvg | https://fudan-zvg.github.io/PVG/ |
 | 4dvla | https://arxiv.org/abs/2506.22242 |
+
+## UltraTex selected entry — 2026-10-21
+
+- Added before Forward Dynamics Models; the existing full-list entry is updated rather than duplicated.
+- Paper and introduction: https://arxiv.org/abs/2609.23169 and https://yiboz2001.github.io/UltraTex/ . The two-sentence description covers background token dropping, block-sparse foreground attention, and foreground-aware decoding for 2K multi-view texturing.
+- Preview: official gallery at https://yiboz2001.github.io/UltraTex/assets/teaser.jpg , converted proportionally to a 640px-wide WebP without cropping. The project page links a full YouTube presentation rather than exposing a short self-hosted demo video, so the lightweight gallery image is used for the compact preview.
+- Current code: https://github.com/yiboz2001/UltraTex ; dataset: https://huggingface.co/datasets/YiboZhang2001/G-buffer-TexVerse . These replace the older TexVerse links in the full list.
