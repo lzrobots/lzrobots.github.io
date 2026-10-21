@@ -1,10 +1,17 @@
+html {
+    font-size: 100%;
+}
+
 body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
     font-weight: 300;
+    font-size: 1rem;
+    line-height: normal;
 }
 
 h1,h2,h3,h4,h5,h6 {
     font-family: inherit;
+    line-height: normal;
 }
 
 b, strong {
@@ -77,8 +84,8 @@ a:focus {
 #home.homepage {
     max-width: 1200px;
     padding: 30px 30px 12px;
-    font-size: 16px;
-    line-height: 1.35;
+    font-size: 1rem;
+    line-height: normal;
 }
 
 .homepage h1,
@@ -114,6 +121,7 @@ a:focus {
 
 .profile-heading {
     text-align: left;
+    font-size: 1rem;
 }
 
 .profile-heading h1 {
@@ -125,7 +133,7 @@ a:focus {
 .profile-affiliation {
     margin: 0 0 12px;
     color: #777;
-    line-height: 1.4;
+    line-height: normal;
 }
 
 .homepage .profile-email {
@@ -149,9 +157,9 @@ a:focus {
 
 .homepage h2 {
     margin: 0 0 18px;
-    font-size: 21px;
+    font-size: 1.3rem;
     font-weight: 700;
-    line-height: 1.3;
+    line-height: normal;
 }
 
 .about p,
@@ -223,9 +231,9 @@ a:focus {
 
 .join-group h3 {
     margin: 0 0 14px;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 600;
-    line-height: 1.4;
+    line-height: normal;
 }
 
 .join-group p {
@@ -258,8 +266,8 @@ a:focus {
     align-items: center;
     gap: 20px;
     padding: 18px 10px;
-    font-size: 16px;
-    line-height: 1.35;
+    font-size: 1em;
+    line-height: normal;
 }
 
 .publication-preview {
@@ -294,9 +302,9 @@ a:focus {
 
 .publication-details h3 {
     margin: 0 0 3px;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: 600;
-    line-height: 1.35;
+    line-height: normal;
 }
 
 .publication-details h3 a {
@@ -342,8 +350,8 @@ a:focus {
 #home.publication-archive {
     max-width: 1200px;
     padding: 6px 30px 12px;
-    font-size: 16px;
-    line-height: 1.35;
+    font-size: 1rem;
+    line-height: normal;
 }
 
 .archive-header h1 {
@@ -353,7 +361,17 @@ a:focus {
 }
 
 .publication-archive h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
     scroll-margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    body,
+    #home.homepage,
+    #home.publication-archive {
+        font-size: 0.75rem;
+    }
 }
 
 @media (max-width: 760px) {
@@ -392,14 +410,7 @@ a:focus {
     }
 
     .profile-heading h1 {
-        font-size: 28px;
         margin-bottom: 10px;
-    }
-
-    .profile-affiliation,
-    .profile-email,
-    .profile-links {
-        font-size: 14px;
     }
 
     .profile-email {
