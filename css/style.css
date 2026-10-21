@@ -323,6 +323,18 @@ a:focus {
     margin: 0 2px;
 }
 
+.all-publications {
+    width: 260px;
+    margin: 8px 0 24px 10px;
+    text-align: center;
+}
+
+.publication-ellipsis {
+    margin: 0 0 22px;
+    font-size: 24px;
+    line-height: 1;
+}
+
 .archive-header {
     padding-top: 24px;
 }
@@ -357,6 +369,11 @@ a:focus {
     .publication {
         grid-template-columns: 220px minmax(0, 1fr);
         padding: 16px 0;
+    }
+
+    .all-publications {
+        width: 220px;
+        margin-left: 0;
     }
 }
 
@@ -399,6 +416,13 @@ a:focus {
     .publication-preview {
         max-width: 320px;
         margin: auto;
+    }
+
+    .all-publications {
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
