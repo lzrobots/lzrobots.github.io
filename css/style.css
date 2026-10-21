@@ -1,11 +1,20 @@
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+}
+
 h1,h2,h3,h4,h5,h6 {
-    font-family: 'PT Serif', serif;
+    font-family: inherit;
+}
+
+b, strong {
+    font-weight: 600;
 }
 
 #home {
     background-color: white;
     color: black;
-    font-family: 'PT Sans', sans-serif;
+    font-family: inherit;
     font-size: 1.05em;
     max-width: 720px;
 }
@@ -64,8 +73,7 @@ a:focus {
     font-size: 0.9em;
 }
 
-/* A wide, left-aligned academic page inspired by Phillip Isola's homepage.
-   Keep the site's existing PT Sans / PT Serif font families. */
+/* A wide, left-aligned academic page inspired by Phillip Isola's homepage. */
 #home.homepage {
     max-width: 1200px;
     padding: 30px 30px 12px;
@@ -151,11 +159,6 @@ a:focus {
     margin: 0 0 18px;
 }
 
-.section-nav {
-    margin-top: 20px;
-    font-weight: 700;
-}
-
 .homepage hr {
     height: 1px;
     margin: 28px -10px;
@@ -221,7 +224,7 @@ a:focus {
 .join-group h3 {
     margin: 0 0 14px;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.4;
 }
 
@@ -292,7 +295,7 @@ a:focus {
 .publication-details h3 {
     margin: 0 0 3px;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.35;
 }
 
