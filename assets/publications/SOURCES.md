@@ -169,7 +169,7 @@ Cropped the same official 38–46s excerpt to its left-hand 2 × 2 robot-demo pa
 
 ## Selected publication summaries — 2026-10-21
 
-Each homepage entry includes an original 1–2 sentence introduction based on its official project page or paper. The summary placement and pale-yellow background follow the layout at https://web.mit.edu/phillipi/ . Bibliographic metadata and preview media are unchanged.
+Each homepage entry includes an original 1–2 sentence introduction based on its official project page or paper. Introductions consistently begin with “This paper” and use an objective third-person voice. The summary placement and pale-yellow background follow the layout at https://web.mit.edu/phillipi/ . Bibliographic metadata and preview media are unchanged.
 
 | Paper | Primary source for the introduction |
 | --- | --- |
