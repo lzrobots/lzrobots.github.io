@@ -131,6 +131,7 @@ a:focus {
 .profile-photo .profile-photo-hover {
     position: absolute;
     inset: 0;
+    clip-path: circle(49% at 50% 50%);
     opacity: 0;
     pointer-events: none;
 }
