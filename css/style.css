@@ -167,6 +167,14 @@ a:focus {
     margin: 0 0 18px;
 }
 
+.institution-logo {
+    display: inline-block;
+    width: auto;
+    height: 1.5em;
+    object-fit: contain;
+    vertical-align: -0.4em;
+}
+
 .interest-topic {
     white-space: nowrap;
 }
