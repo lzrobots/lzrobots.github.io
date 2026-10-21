@@ -167,6 +167,17 @@ a:focus {
     margin: 0 0 18px;
 }
 
+.interest-topic {
+    white-space: nowrap;
+}
+
+.interest-nerf {
+    display: inline-block;
+    width: 1.75em;
+    height: 1.25em;
+    vertical-align: -0.25em;
+}
+
 .homepage hr {
     height: 1px;
     margin: 28px -10px;
