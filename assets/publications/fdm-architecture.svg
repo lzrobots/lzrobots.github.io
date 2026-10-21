@@ -1,12 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1186" height="666" viewBox="0 0 1186 666" class="vector-figure" data-flow-state="running" role="img" aria-labelledby="title description">
-<title id="title">VLA, WAM and FDM: direction of conditioning</title>
-<desc id="description">Original FDM project-page architecture diagrams with animated directed flow. VLA predicts actions directly; WAM conditions actions on generated futures; FDM uses action features to predict futures during training.</desc>
-<!-- Source: https://logosroboticsgroup.github.io/FDM/#architecture-figure . Original SVG geometry, colors and flow animation; arranged in one landscape preview. -->
-<style>.vector-figure { --ink:#202c28; --muted:#59665f; --green:#25564c; --diagram-context:#d5e2cd; --diagram-action:#afd1dc; --diagram-generation:#f3efe3; --diagram-forward:#596b65; --diagram-feedback:#24677d; --diagram-conditioning:#82728e; }
-.heading { font:600 24px Arial,sans-serif; text-anchor:middle; fill:#202c28; }
-.panel-letter { font-weight:400; font-size:16px; fill:#59665f; }
-.subtitle { font:13px Arial,sans-serif; text-anchor:middle; fill:#59665f; }
-.legend { font:13px Arial,sans-serif; fill:#59665f; }
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="456" viewBox="0 0 1160 456" class="vector-figure" data-mode="training" data-flow-state="running" role="img" aria-label="FDM mixture-of-transformers pipeline animation">
+<!-- Original SVG and flow animation: https://logosroboticsgroup.github.io/FDM/#pipeline-detail and diagrams.css. -->
+<style>svg.vector-figure { --ink:#202c28; --muted:#59665f; --green:#25564c; --white:#ffffff; --line:#d2d8ce; --sage:#e7ede6; padding:0; }
+/* Live, selectable vector versions of the paper's two method figures. */
+.vector-figure, .pipeline-overview {
+  --diagram-context: #d5e2cd;
+  --diagram-action: #afd1dc;
+  --diagram-generation: #f3efe3;
+  --diagram-forward: #596b65;
+  --diagram-feedback: #24677d;
+  --diagram-conditioning: #82728e;
+  text-align: left;
+}
+
+.diagram-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  min-height: 44px;
+  margin-bottom: 24px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.diagram-legend { display: inline-flex; align-items: center; gap: 12px; }
+.legend-arrow { position: relative; width: 30px; border-top: 2px solid var(--diagram-forward); }
+.legend-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: 6px;
+  height: 6px;
+  border-top: 2px solid var(--diagram-forward);
+  border-right: 2px solid var(--diagram-forward);
+  transform: rotate(45deg);
+}
+
+.diagram-playback {
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--green);
+  font-size: 12px;
+}
+.diagram-playback:hover { background: var(--sage); }
+
+.pipeline-overview { --diagram-forward: var(--green); }
+.pipeline-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  margin-bottom: 32px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #b8c6b8;
+}
+.pipeline-toolbar .mode-controls { margin-bottom: 0; border-bottom: 0; }
+.pipeline-toolbar .diagram-playback { margin-left: auto; border-color: #b8c6b8; }
+.pipeline-overview .backprop-edge { --flow-color: var(--diagram-feedback); }
+.pipeline-overview .supervision-path { color: var(--diagram-feedback); }
+.pipeline-display[data-mode="inference"] :is(.generation-path, .supervision-path) .flow-pulse {
+  animation-play-state: paused;
+  opacity: 0;
+}
+
+.architecture-grid { display: grid; grid-template-columns: 1fr 1fr 1.3fr; gap: 16px; }
+.architecture-panel { min-width: 0; padding-top: 20px; background: #f7f8f5; border-radius: 12px; }
+.architecture-panel h3 { color: var(--ink); font-size: 24px; font-weight: 600; text-align: center; }
+.architecture-panel h3 span { color: var(--muted); font-size: 16px; font-weight: 400; margin-right: 6px; }
+.architecture-panel > p { margin: 5px 8px 12px; font-size: 13px; color: var(--muted); text-align: center; }
+.architecture-fdm { background: #f0f5ef; }
+.architecture-fdm h3 { color: var(--green); }
+.architecture-svg { display: block; width: 100%; height: auto; overflow: visible; }
 .vla-diagram { --arrow-head: url(#vla-arrow); }
 .wam-diagram { --arrow-head: url(#wam-arrow); }
 .fdm-diagram { --arrow-head: url(#fdm-arrow); }
@@ -52,103 +121,130 @@
 [data-flow-state="running"] .edge-track { stroke-opacity: .5; }
 @keyframes diagram-flow { to { stroke-dashoffset: -24; } }
 
-@media (prefers-reduced-motion: reduce) { .flow-pulse { animation: none !important; } }</style>
-<rect width="1186" height="666" rx="12" fill="white"/>
-<path d="M18 34H48M41 28L48 34L41 40" fill="none" stroke="#596b65" stroke-width="2"/>
-<text class="legend" x="60" y="39">Direction of conditioning</text>
-<rect x="16" y="66" width="340" height="554" rx="12" fill="#f7f8f5"/>
-<text class="heading" x="186.0" y="105"><tspan class="panel-letter">(a) </tspan><tspan>VLA</tspan></text>
-<text class="subtitle" x="186.0" y="132">Direct action prediction</text>
-<svg x="16" y="156" width="340" height="452" class="architecture-svg vla-diagram" viewBox="0 0 340 452" role="img" aria-labelledby="vla-title vla-description">
-            <title id="vla-title">VLA: direct action prediction</title>
-            <desc id="vla-description">Vision and language enter a vision-language model, which feeds an action expert to predict actions directly.</desc>
-            <defs><marker id="vla-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 9 5 1 9Z"/></marker></defs>
-            <g class="diagram-edge"><path class="edge-track" d="M91 62V88"/><path class="flow-pulse" d="M91 62V88"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M249 62V88"/><path class="flow-pulse" d="M249 62V88"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M170 160V304"/><path class="flow-pulse" d="M170 160V304"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M170 366V390"/><path class="flow-pulse" d="M170 366V390"/></g>
-            <rect class="node-visual" x="30" y="18" width="122" height="44" rx="8"/>
-            <rect class="node-language" x="188" y="18" width="122" height="44" rx="8"/>
-            <text class="node-label" x="91" y="46">Vision</text><text class="node-label" x="249" y="46">Language</text>
-            <rect class="node-context" x="18" y="92" width="304" height="68" rx="10"/>
-            <text class="node-label" x="170" y="121">VLM</text>
-            <text class="node-detail" x="170" y="144">Vision-language model</text>
-            <rect class="node-action" x="50" y="308" width="240" height="58" rx="10"/>
-            <text class="node-label" x="170" y="344">Action expert</text>
-            <g class="action-tokens">
-              <rect x="69" y="394" width="26" height="28" rx="4"/><rect x="104" y="394" width="26" height="28" rx="4"/>
-              <rect x="139" y="394" width="26" height="28" rx="4"/><rect x="174" y="394" width="26" height="28" rx="4"/>
-              <rect x="209" y="394" width="26" height="28" rx="4"/><rect x="244" y="394" width="26" height="28" rx="4"/>
-            </g>
-            <text class="node-detail" x="170" y="439">Action</text>
-          </svg>
-<rect x="372" y="66" width="340" height="554" rx="12" fill="#f7f8f5"/>
-<text class="heading" x="542.0" y="105"><tspan class="panel-letter">(b) </tspan><tspan>WAM</tspan></text>
-<text class="subtitle" x="542.0" y="132">Future-conditioned actions</text>
-<svg x="372" y="156" width="340" height="452" class="architecture-svg wam-diagram" viewBox="0 0 340 452" role="img" aria-labelledby="wam-title wam-description">
-            <title id="wam-title">WAM: future-conditioned actions</title>
-            <desc id="wam-description">Vision and language enter a video-generative model. The generated future is an input to the action expert, which then predicts actions.</desc>
-            <defs><marker id="wam-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 9 5 1 9Z"/></marker></defs>
-            <g class="diagram-edge"><path class="edge-track" d="M91 62V88"/><path class="flow-pulse" d="M91 62V88"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M249 62V88"/><path class="flow-pulse" d="M249 62V88"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M170 160V184"/><path class="flow-pulse" d="M170 160V184"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M170 262V304"/><path class="flow-pulse" d="M170 262V304"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M170 366V390"/><path class="flow-pulse" d="M170 366V390"/></g>
-            <rect class="node-visual" x="30" y="18" width="122" height="44" rx="8"/>
-            <rect class="node-language" x="188" y="18" width="122" height="44" rx="8"/>
-            <text class="node-label" x="91" y="46">Vision</text><text class="node-label" x="249" y="46">Language</text>
-            <rect class="node-generation" x="18" y="92" width="304" height="68" rx="10"/>
-            <text class="node-label" x="170" y="121">VGM</text>
-            <text class="node-detail" x="170" y="144">Video-generative model</text>
-            <g class="future-frames"><rect x="153" y="188" width="48" height="38" rx="5"/><rect x="146" y="195" width="48" height="38" rx="5"/><rect x="139" y="202" width="48" height="38" rx="5"/></g>
-            <text class="node-detail" x="170" y="259">Future</text>
-            <rect class="node-action" x="50" y="308" width="240" height="58" rx="10"/>
-            <text class="node-label" x="170" y="344">Action expert</text>
-            <g class="action-tokens">
-              <rect x="69" y="394" width="26" height="28" rx="4"/><rect x="104" y="394" width="26" height="28" rx="4"/>
-              <rect x="139" y="394" width="26" height="28" rx="4"/><rect x="174" y="394" width="26" height="28" rx="4"/>
-              <rect x="209" y="394" width="26" height="28" rx="4"/><rect x="244" y="394" width="26" height="28" rx="4"/>
-            </g>
-            <text class="node-detail" x="170" y="439">Action</text>
-          </svg>
-<rect x="728" y="66" width="442" height="554" rx="12" fill="#f0f5ef"/>
-<text class="heading" x="949.0" y="105"><tspan class="panel-letter">(c) </tspan><tspan>FDM</tspan></text>
-<text class="subtitle" x="949.0" y="132">Action-to-future learning</text>
-<svg x="728" y="156" width="442" height="452" class="architecture-svg fdm-diagram" viewBox="0 0 442 452" role="img" aria-labelledby="fdm-title fdm-description">
-            <title id="fdm-title">FDM: action-to-future learning</title>
-            <desc id="fdm-description">Vision and language enter a VLM or VGM, then an action expert predicts actions. Context and action features also condition a generation expert to predict the future during training only. Future predictions never feed into the action expert.</desc>
-            <defs>
-              <marker id="fdm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 9 5 1 9Z"/></marker>
-              <linearGradient id="fdm-backbone-fill" x1="0" y1="0" x2="1" y2="0">
-                <stop class="backbone-context" offset="0%"/>
-                <stop class="backbone-generation" offset="100%"/>
-              </linearGradient>
-            </defs>
-            <rect class="training-boundary" x="12" y="336" width="418" height="112" rx="12"/>
-            <g class="diagram-edge"><path class="edge-track" d="M116 62V88"/><path class="flow-pulse" d="M116 62V88"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M326 62V88"/><path class="flow-pulse" d="M326 62V88"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M221 160V194"/><path class="flow-pulse" d="M221 160V194"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M221 256V279"/><path class="flow-pulse" d="M221 256V279"/></g>
-            <g class="diagram-edge conditioning-edge"><path class="edge-track" d="M38 126H25V398H62"/><path class="flow-pulse" d="M38 126H25V398H62"/></g>
-            <g class="diagram-edge conditioning-edge"><path class="edge-track" d="M72 227H25"/><path class="flow-pulse" d="M72 227H25"/></g>
-            <g class="diagram-edge"><path class="edge-track" d="M288 399H326"/><path class="flow-pulse" d="M288 399H326"/></g>
-            <rect class="node-visual" x="42" y="18" width="148" height="44" rx="8"/>
-            <rect class="node-language" x="252" y="18" width="148" height="44" rx="8"/>
-            <text class="node-label" x="116" y="46">Vision</text><text class="node-label" x="326" y="46">Language</text>
-            <rect class="node-backbone" x="38" y="92" width="366" height="68" rx="10"/>
-            <text class="node-label" x="221" y="134">VLM / VGM</text>
-            <rect class="node-action" x="72" y="198" width="298" height="58" rx="10"/>
-            <text class="node-label" x="221" y="234">Action expert</text>
-            <g class="action-tokens">
-              <rect x="120" y="283" width="26" height="24" rx="4"/><rect x="155" y="283" width="26" height="24" rx="4"/>
-              <rect x="190" y="283" width="26" height="24" rx="4"/><rect x="225" y="283" width="26" height="24" rx="4"/>
-              <rect x="260" y="283" width="26" height="24" rx="4"/><rect x="295" y="283" width="26" height="24" rx="4"/>
-            </g>
-            <text class="node-detail" x="221" y="323">Action</text>
-            <text class="training-label" x="221" y="361">Training only</text>
-            <rect class="node-generation" x="66" y="374" width="222" height="50" rx="8"/>
-            <text class="node-label generation-label" x="177" y="405">Generation expert</text>
-            <g class="future-frames"><rect x="346" y="374" width="52" height="34" rx="5"/><rect x="338" y="381" width="52" height="34" rx="5"/><rect x="330" y="388" width="52" height="34" rx="5"/></g>
-            <text class="node-detail" x="363" y="441">Future</text>
-          </svg><text class="legend" x="16" y="648">Three paradigms, one key difference: the direction of conditioning.</text>
+.technical-figure > summary { text-align: left; }
+.diagram-scroll { overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: thin; }
+.diagram-scroll:focus-visible { outline: 3px solid var(--green); outline-offset: 5px; }
+.diagram-scroll-hint { display: none; color: var(--muted); font-size: 12px; margin-bottom: 16px; }
+.mot-diagram { --arrow-head: url(#mot-forward-arrow); display: block; width: 100%; min-width: 960px; height: auto; }
+.mot-diagram .diagram-heading { text-anchor: start; font-size: 24px; font-weight: 600; }
+.mot-diagram .diagram-note { text-anchor: start; font-size: 18px; }
+.mot-diagram .node-label { font-size: 24px; }
+.mot-diagram .node-detail { font-size: 19px; }
+.mot-diagram :is(.action-tokens, .noised-tokens, .visual-tokens, .language-tokens) { stroke: none; }
+.mot-diagram .label-ground { fill: var(--white); stroke: none; }
+.mot-diagram .attention-band, .mot-diagram .loss-node { fill: #fbe9e5; stroke: none; }
+.mot-diagram .injection-band { fill: #e2dce8; stroke: none; }
+.mot-diagram .injection-label { font-size: 16px; font-weight: 500; }
+.mot-diagram .loss-label { font: italic 26px Georgia, serif; }
+.mot-diagram .backprop-edge { --flow-color: var(--diagram-feedback); --arrow-head: url(#mot-feedback-arrow); }
+.mot-diagram #mot-feedback-arrow { fill: var(--diagram-feedback); }
+.mot-diagram .feedback-label { fill: var(--diagram-feedback); font-size: 19px; font-weight: 500; }
+.mot-diagram .backprop-edge .edge-track { stroke-width: 2.3; }
+.mot-diagram .diagram-edge:not(.backprop-edge) .edge-track { stroke-dasharray: 5 4; }
+.mot-diagram .legend-text { font-size: 16px; text-anchor: start; }
+.mot-diagram .legend-forward { stroke: var(--diagram-forward); stroke-width: 1.8; stroke-dasharray: 5 4; marker-end: url(#mot-forward-arrow); }
+.mot-diagram .legend-backprop { stroke: var(--diagram-feedback); stroke-width: 2; marker-end: url(#mot-feedback-arrow); }
+.mot-diagram .inference-boundary { fill: #f7f8f5; stroke: #aab6aa; stroke-dasharray: 5 6; }
+.mot-diagram .inference-only .node-detail { font-size: 17px; fill: var(--muted); }
+.mot-diagram .inference-only { display: none; }
+[data-mode="inference"] .mot-diagram .training-only { display: none; }
+[data-mode="inference"] .mot-diagram .inference-only { display: inline; }
+
+@media (max-width: 1100px) {
+  .diagram-scroll-hint { display: block; }
+}
+@media (max-width: 900px) {
+  .architecture-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .architecture-fdm { grid-column: 1 / -1; }
+  .architecture-svg { max-width: 340px; margin-inline: auto; }
+  .fdm-diagram { max-width: 442px; }
+}
+@media (max-width: 600px) {
+  .architecture-grid { grid-template-columns: 1fr; gap: 20px; }
+  .architecture-fdm { grid-column: auto; }
+  .architecture-panel h3 { font-size: 23px; }
+  .architecture-panel > p { font-size: 13px; }
+  .vector-figure { padding: 16px; }
+  .vector-figure figcaption { line-height: 1.7; }
+  .diagram-toolbar { margin-bottom: 18px; font-size: 12px; }
+  .architecture-svg .node-detail { font-size: 18px; }
+  .fdm-diagram .node-label { font-size: 25px; }
+  .fdm-diagram .generation-label { font-size: 22px; }
+  .fdm-diagram .node-detail { font-size: 20px; }
+  .fdm-diagram .training-label { font-size: 21px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .diagram-edge .flow-pulse, .diagram-playback { display: none; }
+}
+
+svg.vector-figure { padding:0; }
+.mot-diagram { width:1160px; height:456px; min-width:0; }
+</style>
+<rect width="1160" height="456" fill="white"/>
+<svg class="mot-diagram" viewBox="0 0 1160 456" role="img" aria-labelledby="mot-title mot-description">
+<title id="mot-title">FDM mixture-of-transformers pipeline</title>
+<desc id="mot-description">During training, visual and text inputs enter the context expert, and noised actions enter the action expert to produce clean actions. MoT attention injects action features into the generation expert. Predicted and ground-truth futures form the future loss, which backpropagates into action features. During inference, future prediction is skipped.</desc>
+<defs>
+<marker id="mot-forward-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 9 5 1 9Z"/></marker>
+<marker id="mot-feedback-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 9 5 1 9Z"/></marker>
+</defs>
+<text class="diagram-heading" x="36" y="52">Train / Infer</text>
+<text class="diagram-note" x="36" y="85">Train: all three experts</text>
+<text class="diagram-note" x="36" y="111">Infer: context + action</text>
+<g class="training-only">
+<rect class="training-boundary" x="690" y="68" width="446" height="370" rx="14"/>
+<rect class="label-ground" x="944" y="52" width="176" height="32"/>
+<text class="training-label" x="1032" y="75">Training only</text>
+<g class="diagram-edge backprop-edge"><path class="edge-track" d="M924 98V43H602V184"/><path class="flow-pulse" d="M924 98V43H602V184"/></g>
+<text class="feedback-label" x="763" y="26">Future supervision</text>
+<g class="future-tokens"><rect x="734" y="103" width="28" height="28" rx="5"/><rect x="774" y="103" width="28" height="28" rx="5"/><rect x="814" y="103" width="28" height="28" rx="5"/></g>
+<text class="node-detail" x="788" y="154">Predicted future</text>
+<g class="ground-truth-tokens"><rect x="1010" y="103" width="28" height="28" rx="5"/><rect x="1050" y="103" width="28" height="28" rx="5"/><rect x="1090" y="103" width="28" height="28" rx="5"/></g>
+<text class="node-detail" x="1064" y="154">GT future</text>
+<rect class="loss-node" x="886" y="98" width="76" height="38" rx="8"/>
+<text class="loss-label" x="924" y="124">ℒ<tspan baseline-shift="sub" font-size="14">future</tspan></text>
+<g class="diagram-edge backprop-edge"><path class="edge-track" d="M850 117H880"/><path class="flow-pulse" d="M850 117H880"/></g>
+<g class="diagram-edge backprop-edge"><path class="edge-track" d="M1002 117H968"/><path class="flow-pulse" d="M1002 117H968"/></g>
+<g class="diagram-edge"><path class="edge-track" d="M788 190V164"/><path class="flow-pulse" d="M788 190V164"/></g>
+</g>
+<g class="action-tokens"><rect x="436" y="103" width="28" height="28" rx="5"/><rect x="476" y="103" width="28" height="28" rx="5"/><rect x="516" y="103" width="28" height="28" rx="5"/></g>
+<text class="node-detail" x="490" y="154">Clean action</text>
+<g class="diagram-edge"><path class="edge-track" d="M490 190V164"/><path class="flow-pulse" d="M490 190V164"/></g>
+<rect class="node-context" x="34" y="190" width="300" height="144" rx="14"/>
+<rect class="node-action" x="346" y="190" width="308" height="144" rx="14"/>
+<text class="node-label" x="184" y="230">Context expert</text>
+<text class="node-label" x="500" y="230">Action expert</text>
+<rect class="attention-band" x="20" y="258" width="634" height="48" rx="7"/>
+<text class="node-label" x="305" y="289">MoT attention</text>
+<g class="training-only">
+<rect class="node-generation" x="718" y="190" width="394" height="144" rx="14"/>
+<text class="node-label" x="915" y="230">Generation expert</text>
+<rect class="attention-band" x="648" y="258" width="480" height="48" rx="7"/>
+<rect class="injection-band" x="612" y="258" width="148" height="48" rx="7"/>
+<text class="injection-label" x="686" y="278">Action features<tspan x="686" dy="19">injection</tspan></text>
+<g class="diagram-edge injection-edge"><path class="edge-track" d="M660 230H712"/><path class="flow-pulse" d="M660 230H712"/></g>
+<g class="diagram-edge"><path class="edge-track" d="M802 372V340"/><path class="flow-pulse" d="M802 372V340"/></g>
+<g class="future-tokens"><rect x="748" y="378" width="28" height="28" rx="5"/><rect x="788" y="378" width="28" height="28" rx="5"/><rect x="828" y="378" width="28" height="28" rx="5"/></g>
+<text class="node-detail" x="802" y="432">Input visual</text>
+<path class="legend-forward" d="M932 385H968"/>
+<text class="legend-text" x="982" y="390">Forward flow</text>
+<path class="legend-backprop" d="M968 420H932"/>
+<text class="legend-text" x="982" y="425">Backpropagation</text>
+</g>
+<g class="inference-only">
+<rect class="inference-boundary" x="690" y="190" width="446" height="144" rx="14"/>
+<text class="node-label" x="913" y="233">Future generation skipped</text>
+<text class="node-detail" x="913" y="269">Retain the current-observation processing</text>
+<text class="node-detail" x="913" y="293">needed by the action expert.</text>
+</g>
+<g class="diagram-edge"><path class="edge-track" d="M106 372V340"/><path class="flow-pulse" d="M106 372V340"/></g>
+<g class="diagram-edge"><path class="edge-track" d="M258 372V340"/><path class="flow-pulse" d="M258 372V340"/></g>
+<g class="diagram-edge"><path class="edge-track" d="M490 372V340"/><path class="flow-pulse" d="M490 372V340"/></g>
+<g class="visual-tokens"><rect x="52" y="378" width="28" height="28" rx="5"/><rect x="92" y="378" width="28" height="28" rx="5"/><rect x="132" y="378" width="28" height="28" rx="5"/></g>
+<g class="language-tokens"><rect x="224" y="378" width="28" height="28" rx="5"/><rect x="264" y="378" width="28" height="28" rx="5"/></g>
+<g class="noised-tokens"><rect x="436" y="378" width="28" height="28" rx="5"/><rect x="476" y="378" width="28" height="28" rx="5"/><rect x="516" y="378" width="28" height="28" rx="5"/></g>
+<text class="node-detail" x="106" y="432">Input visual</text>
+<text class="node-detail" x="258" y="432">Text</text>
+<text class="node-detail" x="490" y="432">Noised action</text>
+</svg>
 </svg>

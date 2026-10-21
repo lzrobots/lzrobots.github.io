@@ -1,6 +1,6 @@
 # Publication preview sources
 
-FDM architecture preview (`fdm-architecture.svg`): uses the original three SVG diagrams and directed-flow CSS animation from https://logosroboticsgroup.github.io/FDM/#architecture-figure and https://logosroboticsgroup.github.io/FDM/diagrams.css . The source is an animated vector figure, not a video file. The diagrams are arranged in a single landscape SVG preview (about 13 KB), preserving their original geometry, colors and animation. This replaces the FDM robot rollout preview.
+FDM MoT pipeline preview (`fdm-architecture.svg`): uses the original `mot-diagram` SVG and directed-flow CSS animation from https://logosroboticsgroup.github.io/FDM/#pipeline-detail and https://logosroboticsgroup.github.io/FDM/diagrams.css . This is the single “Mixture-of-transformers (MoT)” diagram with context, action and generation experts, MoT attention, action-feature injection and future-supervision backpropagation. The source is an animated vector figure, not a video file. Its original geometry, colors and animation are preserved in a standalone SVG (about 15 KB). It replaces the earlier three-panel VLA/WAM/FDM comparison preview.
 
 Local WebP copies resized from the following project and paper figures on 2026-10-21.
 
