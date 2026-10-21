@@ -22,7 +22,7 @@
     <div class="profile-sidebar">
       <img class="profile-photo" src="assets/li-zhang.webp" alt="Li Zhang" width="280" height="280" fetchpriority="high">
       <nav class="profile-links" aria-label="Contact and profiles">
-        <a href="mailto:lizhangfd@fudan.edu.cn">Email</a> / <a href="https://scholar.google.com/citations?user=-wOTCE8AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a><br>
+        <a class="contact-link" href="mailto:lizhangfd@fudan.edu.cn">email</a> / <a class="contact-link" href="https://scholar.google.com/citations?user=-wOTCE8AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">google scholar</a><br>
         <a href="https://github.com/logosroboticsgroup" target="_blank" rel="noopener noreferrer">git-logos</a> / <a href="https://github.com/fudan-zvg" target="_blank" rel="noopener noreferrer">git-zvg</a>
       </nav>
     </div>
@@ -267,7 +267,13 @@
       </div>
     </article>
     <article class="publication" id="driveweaver">
-      <a class="publication-preview" href="https://github.com/LogosRoboticsGroup/DriveWeaver" target="_blank" rel="noopener noreferrer" aria-label="View DriveWeaver: Point-Conditioned Video Inpainting for Controllable Vehicle Insertion in Autonomous Driving Simulation"><iframe id="driveweaver-player" data-video-id="tNcwNxUjzWE" data-preview-start="35" data-preview-end="47" class="publication-image publication-embed" src="https://www.youtube.com/embed/tNcwNxUjzWE?autoplay=1&amp;mute=1&amp;enablejsapi=1&amp;start=35&amp;end=47&amp;controls=0&amp;playsinline=1&amp;rel=0&amp;disablekb=1" title="DriveWeaver: Point-Conditioned Video Inpainting for Controllable Vehicle Insertion in Autonomous Driving Simulation — official overview video" width="260" height="146" allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin" tabindex="-1"></iframe></a>
+      <div class="publication-preview publication-video">
+        <a class="publication-media-link" href="https://github.com/LogosRoboticsGroup/DriveWeaver" target="_blank" rel="noopener noreferrer" aria-label="View DriveWeaver: Point-Conditioned Video Inpainting for Controllable Vehicle Insertion in Autonomous Driving Simulation">
+          <video class="publication-image" width="260" height="146" autoplay muted loop playsinline preload="auto" aria-label="DriveWeaver: vehicle insertion in sunny, nighttime, and rainy scenes">
+            <source src="assets/publications/driveweaver-preview.mp4" type="video/mp4">
+          </video>
+        </a>
+      </div>
       <div class="publication-details">
         <h3><a href="https://github.com/LogosRoboticsGroup/DriveWeaver" target="_blank" rel="noopener noreferrer">DriveWeaver: Point-Conditioned Video Inpainting for Controllable Vehicle Insertion in Autonomous Driving Simulation</a></h3>
         <p class="publication-authors">Junzhe Jiang, Zipei Ma, Zijie Pan, <strong>Li Zhang</strong></p>

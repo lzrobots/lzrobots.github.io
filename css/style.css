@@ -162,7 +162,7 @@ a:focus {
     display: block;
     width: fit-content;
     margin: 10px 0 0 25px;
-    color: #b85e00;
+    color: #000;
     cursor: pointer;
     list-style: none;
 }
@@ -172,7 +172,7 @@ a:focus {
 }
 
 .news-more summary:hover {
-    color: #914a00;
+    color: #000;
     text-decoration: underline;
 }
 
@@ -197,14 +197,40 @@ a:focus {
 .section-heading {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
+    align-items: center;
+    justify-content: space-between;
     gap: 8px 20px;
     margin-bottom: 12px;
 }
 
 .full-list-link {
-    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 14px;
+    border: 1px solid #d7e0ec;
+    border-radius: 999px;
+    background: #f8fafd;
+    color: #365d91;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+    box-shadow: none;
     white-space: nowrap;
+}
+
+.full-list-link:hover,
+.full-list-link:focus-visible {
+    border-color: #9fb6d5;
+    background: #edf3fb;
+    color: #254b7c;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.full-list-link svg {
+    flex-shrink: 0;
 }
 
 /* Compact bibliography rows with matching landscape preview areas. */
@@ -252,11 +278,6 @@ a:focus {
     object-fit: contain;
     object-position: center;
     background: var(--preview-background);
-}
-
-.publication-embed {
-    border: 0;
-    pointer-events: none;
 }
 
 .publication-preview > .publication-image,
@@ -325,6 +346,14 @@ a:focus {
 }
 
 @media (max-width: 600px) {
+    .section-heading {
+        gap: 10px 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 22px;
+    }
+
     .profile {
         grid-template-columns: minmax(0, 1fr);
         gap: 26px;
