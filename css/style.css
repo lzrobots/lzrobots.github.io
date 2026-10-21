@@ -38,7 +38,6 @@ ul li {
 
 .papertitle {
     font-style: italic;
-    !font-weight: 600;
 }
 
 .distinction {
@@ -63,4 +62,297 @@ a:focus {
     margin-top: 20px;
     margin-bottom: 15px;
     font-size: 0.9em;
+}
+
+/* The homepage combines a portrait biography with compact research rows. */
+#home.homepage {
+    max-width: 1020px;
+    padding: 32px 30px 12px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.homepage h1,
+.homepage h2,
+.homepage h3 {
+    color: #171717;
+}
+
+.profile-heading {
+    margin-bottom: 34px;
+    text-align: center;
+}
+
+.profile-heading h1 {
+    margin: 0 0 12px;
+    font-size: 42px;
+    font-weight: 400;
+}
+
+.profile-heading p {
+    margin: 0;
+    line-height: 1.5;
+}
+
+.profile {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: 42px;
+    align-items: start;
+}
+
+.profile-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.profile-links {
+    margin-top: 18px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+.profile-biography p {
+    margin: 0 0 20px;
+}
+
+.profile-biography p:last-child {
+    margin-bottom: 0;
+}
+
+.prospective-students {
+    margin: 30px auto 0;
+    text-align: left;
+}
+
+.prospective-students h2 {
+    margin: 0 0 10px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.prospective-students p {
+    margin-bottom: 0;
+}
+
+.homepage hr {
+    margin: 32px 0;
+    border-color: #e2e2e2;
+}
+
+.news h2,
+.section-heading h2 {
+    margin: 0;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+.homepage .news-list {
+    margin: 18px 0 0;
+    padding-left: 25px;
+    list-style: disc;
+}
+
+.homepage .news-list li {
+    margin: 3px 0;
+}
+
+.news-more summary {
+    display: block;
+    width: fit-content;
+    margin: 10px 0 0 25px;
+    color: #b85e00;
+    cursor: pointer;
+    list-style: none;
+}
+
+.news-more summary::-webkit-details-marker {
+    display: none;
+}
+
+.news-more summary:hover {
+    color: #914a00;
+    text-decoration: underline;
+}
+
+.when-open,
+.news-more[open] .when-closed {
+    display: none;
+}
+
+.news-more[open] .when-open {
+    display: inline;
+}
+
+.news-more .news-list {
+    margin-top: 12px;
+}
+
+.homepage :focus-visible {
+    outline: 2px solid #3366bb;
+    outline-offset: 4px;
+}
+
+.section-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 20px;
+    margin-bottom: 12px;
+}
+
+.full-list-link {
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+/* Compact bibliography rows with matching landscape preview areas. */
+.publication {
+    --preview-aspect-ratio: 16 / 9;
+    --preview-background: #e5e7eb;
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: center;
+    gap: 28px;
+    padding: 20px 0;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.publication-preview {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: var(--preview-aspect-ratio);
+    overflow: hidden;
+    background: var(--preview-background);
+    box-shadow: none;
+}
+
+.publication-preview:hover {
+    box-shadow: none;
+}
+
+.publication-media-link {
+    position: absolute;
+    inset: 0;
+    display: block;
+    box-shadow: none;
+}
+
+.publication-media-link:hover {
+    box-shadow: none;
+}
+
+.publication-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background: var(--preview-background);
+}
+
+.publication-embed {
+    border: 0;
+    pointer-events: none;
+}
+
+.publication-preview > .publication-image,
+.publication-video .publication-image {
+    position: absolute;
+    inset: 0;
+}
+
+.publication-details h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.publication-details p {
+    margin: 0;
+}
+
+.publication-venue {
+    font-style: italic;
+}
+
+.publication-placeholder {
+    display: flex;
+    width: 100%;
+    aspect-ratio: var(--preview-aspect-ratio);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--preview-background);
+    color: #73777b;
+}
+
+.publication-placeholder span {
+    font-size: 24px;
+}
+
+.publication-placeholder small {
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+.archive-header {
+    padding-top: 24px;
+}
+
+.publication-archive h2 {
+    scroll-margin-top: 20px;
+}
+
+@media (max-width: 760px) {
+    #home.homepage {
+        padding: 24px 20px 12px;
+    }
+
+    .profile {
+        grid-template-columns: 210px minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .publication {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .profile {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+    }
+
+    .profile-sidebar {
+        width: 230px;
+        margin: auto;
+    }
+
+    .profile-heading h1 {
+        font-size: 36px;
+    }
+
+    .publication {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 14px;
+        padding: 22px 0;
+    }
+
+    .publication-preview,
+    .publication-placeholder {
+        width: 100%;
+        max-width: 360px;
+        margin: auto;
+    }
+
+    .publication-details h3 {
+        font-size: 16px;
+    }
 }
