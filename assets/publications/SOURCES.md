@@ -1,5 +1,7 @@
 # Publication preview sources
 
+FDM architecture preview (`fdm-architecture.svg`): uses the original three SVG diagrams and directed-flow CSS animation from https://logosroboticsgroup.github.io/FDM/#architecture-figure and https://logosroboticsgroup.github.io/FDM/diagrams.css . The source is an animated vector figure, not a video file. The diagrams are arranged in a single landscape SVG preview (about 13 KB), preserving their original geometry, colors and animation. This replaces the FDM robot rollout preview.
+
 Local WebP copies resized from the following project and paper figures on 2026-10-21.
 
 - `smr.webp`: https://logosroboticsgroup.github.io/SMR/static/videos/arms-smr.jpg
@@ -57,11 +59,11 @@ Videos have `preload="none"` and no source URL assigned until hover or an explic
 | --- | ---: | ---: | --- |
 | smr | 5.7s | 0.90 MB | [Source](https://logosroboticsgroup.github.io/SMR/static/videos/arms-smr.mp4) |
 | fdm | 26.1s | 1.71 MB | [Source](https://logosroboticsgroup.github.io/FDM/assets/comparisons/cube/FDM-VLM.mp4) |
-| tacpac | 46.1s | 0.49 MB | [Source](https://logosroboticsgroup.github.io/TacPAC/assets/videos/potato_chip__tacpac__success.mp4) |
+| tacpac | 56.6s | 0.72 MB | [Source](https://logosroboticsgroup.github.io/TacPAC/assets/videos/expansion_card__tacpac__success.mp4) |
 | rove | 11.1s | 8.87 MB | [Source](https://xpeng-robotics.github.io/rove/assets/recovery1-new.mp4?v=20260611) |
 | prophrl | 2.9s | 0.31 MB | [Source](https://logosroboticsgroup.github.io/ProphRL/assets/videos/rl_behavior/episode_000015_ppt.mp4) |
 | a2world | 10.6s | 0.43 MB | [Source](https://logosroboticsgroup.github.io/A2World/docs/resources/real-world-execution/lift-box-high.mp4) |
-| mola | 3.7s | 0.06 MB | [Source](https://logosroboticsgroup.github.io/MoLA/video_benchmark/calvin/calvin_go%20push%20the%20pink%20block%20left.mp4) |
+| mola | 44.5s | 12.07 MB | [Source](https://logosroboticsgroup.github.io/MoLA/video_realworld/20260512_155544.mp4) |
 | navol | 48.3s | 6.96 MB | [Source](https://logosroboticsgroup.github.io/NavOL/static/videos/scene2/IMG_5647.mp4) |
 | pvg | 9.9s | 9.57 MB | [Source](https://sulvxiangxin.github.io/images/pvg/video.mp4) |
 
@@ -81,9 +83,9 @@ Prefer the project's first hero/showcase video or official overview. If none exi
 | --- | --- | --- |
 | SMR | `static/videos/arms-smr.mp4` | First hero video on the official SMR homepage; retained. |
 | FDM | `assets/hero/rollouts.mp4` | First cover video on the official FDM homepage; replaces the cube-task comparison. |
-| TacPAC | `assets/videos/tacpac-demo-narrated-en.mp4` | First main video, labeled “The full story, in three minutes” on the official homepage. |
+| TacPAC | `assets/videos/expansion_card__tacpac__success.mp4` | Original TacPAC success rollout for expansion-card insertion. |
 | ROVE | `assets/ROVE-new.mp4?v=20260614-cr13` | First hero video on the official ROVE homepage; retained. |
-| ProphRL | `assets/videos/bridge/bridge-prophet-0_web.mp4` | No overview video; use the first demo of Prophet (ours) from the homepage’s first task comparison. |
+| ProphRL | `assets/videos/rl_behavior/episode_000015_ppt.mp4` | Original “ProphRL (Ours)” real-robot clip from “Real world PlaceBowl: RL discovers new behavior”. |
 | X-WBC | `assets/videos/xwbc-hero.mp4` | First hero video on the official homepage; retained. |
 | A2World | `docs/resources/real-world-execution/lift-box-high.mp4` | User requested a shorter, less tall demo: selected the official 1280 × 720 real-robot clip, duration 10.58s, instead of the 960 × 1920 portrait rollout. |
 | MoLA | `video_realworld/20260512_155544.mp4` | First hero/featured video on the official homepage; replaces the CALVIN task clip. |
@@ -98,8 +100,8 @@ Demo fallback audit: the official DeFi and SGDrive repository trees and READMEs 
 
 ## Compact showcase refinements — 2026-10-21
 
-- MoLA: use the official CALVIN drawer-opening demo (3.3s) instead of the 44.5s narrated/multi-panel real-world showcase. Original square aspect ratio is contained inside the common 16:9 background. Source: https://logosroboticsgroup.github.io/MoLA/video_benchmark/calvin/calvin_pull%20the%20handle%20to%20open%20the%20drawer.mp4 .
-- TacPAC: use seconds 8–20 of the official fragile potato-chip transfer demo. The 960 × 540 original is neither spatially cropped nor re-encoded; the page loops this 12s interval at its original speed. Source: https://logosroboticsgroup.github.io/TacPAC/assets/videos/potato_chip__tacpac__success.mp4 .
+- MoLA: use seconds 6–18 of the official real-world UR5e manipulation demo, skipping the opening title. The page loops this 12s interval directly from the original video without cropping, re-encoding, or changing its speed. Source: https://logosroboticsgroup.github.io/MoLA/video_realworld/20260512_155544.mp4 .
+- TacPAC: use seconds 24–44 of the official expansion-card insertion demo. The 960 × 540 original is neither spatially cropped nor re-encoded; the page loops this 20s interval at its original speed. Source: https://logosroboticsgroup.github.io/TacPAC/assets/videos/expansion_card__tacpac__success.mp4 .
 - DriveWeaver: use seconds 35–47 (Waymo comparison demonstration) of the official YouTube video `tNcwNxUjzWE`, instead of playing its full 115.6s overview. The official IFrame API loops this interval without downloading or re-encoding the video.
 - All other publication media, including PVG, are preserved during this refinement.
 

@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1186" height="666" viewBox="0 0 1186 666" class="vector-figure" data-flow-state="running" role="img" aria-labelledby="title description">
+<title id="title">VLA, WAM and FDM: direction of conditioning</title>
+<desc id="description">Original FDM project-page architecture diagrams with animated directed flow. VLA predicts actions directly; WAM conditions actions on generated futures; FDM uses action features to predict futures during training.</desc>
+<!-- Source: https://logosroboticsgroup.github.io/FDM/#architecture-figure . Original SVG geometry, colors and flow animation; arranged in one landscape preview. -->
+<style>.vector-figure { --ink:#202c28; --muted:#59665f; --green:#25564c; --diagram-context:#d5e2cd; --diagram-action:#afd1dc; --diagram-generation:#f3efe3; --diagram-forward:#596b65; --diagram-feedback:#24677d; --diagram-conditioning:#82728e; }
+.heading { font:600 24px Arial,sans-serif; text-anchor:middle; fill:#202c28; }
+.panel-letter { font-weight:400; font-size:16px; fill:#59665f; }
+.subtitle { font:13px Arial,sans-serif; text-anchor:middle; fill:#59665f; }
+.legend { font:13px Arial,sans-serif; fill:#59665f; }
+.vla-diagram { --arrow-head: url(#vla-arrow); }
+.wam-diagram { --arrow-head: url(#wam-arrow); }
+.fdm-diagram { --arrow-head: url(#fdm-arrow); }
+
+.vector-figure svg { stroke-width: 1.5; }
+.vector-figure svg text {
+  fill: var(--ink);
+  stroke: none;
+  font-family: 'DM Sans', sans-serif;
+  text-anchor: middle;
+}
+.vector-figure .node-label { font-size: 22px; font-weight: 500; }
+.vector-figure .node-detail { font-size: 16px; }
+.vector-figure .generation-label { font-size: 20px; }
+.vector-figure .node-visual, .vector-figure .visual-tokens { fill: #edf2e2; stroke: #8a9f79; }
+.vector-figure .node-language, .vector-figure .language-tokens { fill: #fff0c1; stroke: #b39b59; }
+.vector-figure .node-context { fill: var(--diagram-context); stroke: #8a9f79; }
+.vector-figure .node-action, .vector-figure .noised-tokens { fill: var(--diagram-action); stroke: #6c9eab; }
+.vector-figure .node-generation, .vector-figure .future-frames { fill: var(--diagram-generation); stroke: #b4aa8c; }
+.vector-figure .node-backbone { fill: none; stroke: #9ea889; }
+.fdm-diagram .node-backbone { fill: url(#fdm-backbone-fill); }
+.fdm-diagram .backbone-context { stop-color: var(--diagram-context); }
+.fdm-diagram .backbone-generation { stop-color: var(--diagram-generation); }
+.vector-figure .action-tokens { fill: #d5f1f5; stroke: #80b4c1; }
+.vector-figure .future-tokens { fill: #e8dfc4; stroke: none; }
+.vector-figure .ground-truth-tokens { fill: #c7b98c; stroke: none; }
+.vector-figure .training-boundary { fill: none; stroke: #aa9e7d; stroke-dasharray: 5 6; }
+.vector-figure .training-label { fill: var(--diagram-feedback); font-size: 18px; font-weight: 600; }
+
+/* Arrowheads stay visible; the travelling marks follow the same directed paths. */
+.diagram-edge { --flow-color: var(--diagram-forward); fill: none; stroke: var(--flow-color); }
+.conditioning-edge { --flow-color: var(--diagram-conditioning); }
+.diagram-edge .edge-track { stroke-width: 1.8; marker-end: var(--arrow-head); }
+.vector-figure marker { fill: var(--diagram-forward); stroke: none; }
+.diagram-edge .flow-pulse {
+  opacity: 0;
+  stroke-width: 3;
+  stroke-dasharray: 5 19;
+  animation: diagram-flow 1.2s linear infinite;
+  animation-play-state: paused;
+}
+[data-flow-state="running"] .flow-pulse { opacity: 1; animation-play-state: running; }
+[data-flow-state="running"] .edge-track { stroke-opacity: .5; }
+@keyframes diagram-flow { to { stroke-dashoffset: -24; } }
+
+@media (prefers-reduced-motion: reduce) { .flow-pulse { animation: none !important; } }</style>
+<rect width="1186" height="666" rx="12" fill="white"/>
+<path d="M18 34H48M41 28L48 34L41 40" fill="none" stroke="#596b65" stroke-width="2"/>
+<text class="legend" x="60" y="39">Direction of conditioning</text>
+<rect x="16" y="66" width="340" height="554" rx="12" fill="#f7f8f5"/>
+<text class="heading" x="186.0" y="105"><tspan class="panel-letter">(a) </tspan><tspan>VLA</tspan></text>
+<text class="subtitle" x="186.0" y="132">Direct action prediction</text>
+<svg x="16" y="156" width="340" height="452" class="architecture-svg vla-diagram" viewBox="0 0 340 452" role="img" aria-labelledby="vla-title vla-description">
+            <title id="vla-title">VLA: direct action prediction</title>
+            <desc id="vla-description">Vision and language enter a vision-language model, which feeds an action expert to predict actions directly.</desc>
+            <defs><marker id="vla-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 9 5 1 9Z"/></marker></defs>
+            <g class="diagram-edge"><path class="edge-track" d="M91 62V88"/><path class="flow-pulse" d="M91 62V88"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M249 62V88"/><path class="flow-pulse" d="M249 62V88"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M170 160V304"/><path class="flow-pulse" d="M170 160V304"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M170 366V390"/><path class="flow-pulse" d="M170 366V390"/></g>
+            <rect class="node-visual" x="30" y="18" width="122" height="44" rx="8"/>
+            <rect class="node-language" x="188" y="18" width="122" height="44" rx="8"/>
+            <text class="node-label" x="91" y="46">Vision</text><text class="node-label" x="249" y="46">Language</text>
+            <rect class="node-context" x="18" y="92" width="304" height="68" rx="10"/>
+            <text class="node-label" x="170" y="121">VLM</text>
+            <text class="node-detail" x="170" y="144">Vision-language model</text>
+            <rect class="node-action" x="50" y="308" width="240" height="58" rx="10"/>
+            <text class="node-label" x="170" y="344">Action expert</text>
+            <g class="action-tokens">
+              <rect x="69" y="394" width="26" height="28" rx="4"/><rect x="104" y="394" width="26" height="28" rx="4"/>
+              <rect x="139" y="394" width="26" height="28" rx="4"/><rect x="174" y="394" width="26" height="28" rx="4"/>
+              <rect x="209" y="394" width="26" height="28" rx="4"/><rect x="244" y="394" width="26" height="28" rx="4"/>
+            </g>
+            <text class="node-detail" x="170" y="439">Action</text>
+          </svg>
+<rect x="372" y="66" width="340" height="554" rx="12" fill="#f7f8f5"/>
+<text class="heading" x="542.0" y="105"><tspan class="panel-letter">(b) </tspan><tspan>WAM</tspan></text>
+<text class="subtitle" x="542.0" y="132">Future-conditioned actions</text>
+<svg x="372" y="156" width="340" height="452" class="architecture-svg wam-diagram" viewBox="0 0 340 452" role="img" aria-labelledby="wam-title wam-description">
+            <title id="wam-title">WAM: future-conditioned actions</title>
+            <desc id="wam-description">Vision and language enter a video-generative model. The generated future is an input to the action expert, which then predicts actions.</desc>
+            <defs><marker id="wam-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 9 5 1 9Z"/></marker></defs>
+            <g class="diagram-edge"><path class="edge-track" d="M91 62V88"/><path class="flow-pulse" d="M91 62V88"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M249 62V88"/><path class="flow-pulse" d="M249 62V88"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M170 160V184"/><path class="flow-pulse" d="M170 160V184"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M170 262V304"/><path class="flow-pulse" d="M170 262V304"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M170 366V390"/><path class="flow-pulse" d="M170 366V390"/></g>
+            <rect class="node-visual" x="30" y="18" width="122" height="44" rx="8"/>
+            <rect class="node-language" x="188" y="18" width="122" height="44" rx="8"/>
+            <text class="node-label" x="91" y="46">Vision</text><text class="node-label" x="249" y="46">Language</text>
+            <rect class="node-generation" x="18" y="92" width="304" height="68" rx="10"/>
+            <text class="node-label" x="170" y="121">VGM</text>
+            <text class="node-detail" x="170" y="144">Video-generative model</text>
+            <g class="future-frames"><rect x="153" y="188" width="48" height="38" rx="5"/><rect x="146" y="195" width="48" height="38" rx="5"/><rect x="139" y="202" width="48" height="38" rx="5"/></g>
+            <text class="node-detail" x="170" y="259">Future</text>
+            <rect class="node-action" x="50" y="308" width="240" height="58" rx="10"/>
+            <text class="node-label" x="170" y="344">Action expert</text>
+            <g class="action-tokens">
+              <rect x="69" y="394" width="26" height="28" rx="4"/><rect x="104" y="394" width="26" height="28" rx="4"/>
+              <rect x="139" y="394" width="26" height="28" rx="4"/><rect x="174" y="394" width="26" height="28" rx="4"/>
+              <rect x="209" y="394" width="26" height="28" rx="4"/><rect x="244" y="394" width="26" height="28" rx="4"/>
+            </g>
+            <text class="node-detail" x="170" y="439">Action</text>
+          </svg>
+<rect x="728" y="66" width="442" height="554" rx="12" fill="#f0f5ef"/>
+<text class="heading" x="949.0" y="105"><tspan class="panel-letter">(c) </tspan><tspan>FDM</tspan></text>
+<text class="subtitle" x="949.0" y="132">Action-to-future learning</text>
+<svg x="728" y="156" width="442" height="452" class="architecture-svg fdm-diagram" viewBox="0 0 442 452" role="img" aria-labelledby="fdm-title fdm-description">
+            <title id="fdm-title">FDM: action-to-future learning</title>
+            <desc id="fdm-description">Vision and language enter a VLM or VGM, then an action expert predicts actions. Context and action features also condition a generation expert to predict the future during training only. Future predictions never feed into the action expert.</desc>
+            <defs>
+              <marker id="fdm-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M1 1 9 5 1 9Z"/></marker>
+              <linearGradient id="fdm-backbone-fill" x1="0" y1="0" x2="1" y2="0">
+                <stop class="backbone-context" offset="0%"/>
+                <stop class="backbone-generation" offset="100%"/>
+              </linearGradient>
+            </defs>
+            <rect class="training-boundary" x="12" y="336" width="418" height="112" rx="12"/>
+            <g class="diagram-edge"><path class="edge-track" d="M116 62V88"/><path class="flow-pulse" d="M116 62V88"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M326 62V88"/><path class="flow-pulse" d="M326 62V88"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M221 160V194"/><path class="flow-pulse" d="M221 160V194"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M221 256V279"/><path class="flow-pulse" d="M221 256V279"/></g>
+            <g class="diagram-edge conditioning-edge"><path class="edge-track" d="M38 126H25V398H62"/><path class="flow-pulse" d="M38 126H25V398H62"/></g>
+            <g class="diagram-edge conditioning-edge"><path class="edge-track" d="M72 227H25"/><path class="flow-pulse" d="M72 227H25"/></g>
+            <g class="diagram-edge"><path class="edge-track" d="M288 399H326"/><path class="flow-pulse" d="M288 399H326"/></g>
+            <rect class="node-visual" x="42" y="18" width="148" height="44" rx="8"/>
+            <rect class="node-language" x="252" y="18" width="148" height="44" rx="8"/>
+            <text class="node-label" x="116" y="46">Vision</text><text class="node-label" x="326" y="46">Language</text>
+            <rect class="node-backbone" x="38" y="92" width="366" height="68" rx="10"/>
+            <text class="node-label" x="221" y="134">VLM / VGM</text>
+            <rect class="node-action" x="72" y="198" width="298" height="58" rx="10"/>
+            <text class="node-label" x="221" y="234">Action expert</text>
+            <g class="action-tokens">
+              <rect x="120" y="283" width="26" height="24" rx="4"/><rect x="155" y="283" width="26" height="24" rx="4"/>
+              <rect x="190" y="283" width="26" height="24" rx="4"/><rect x="225" y="283" width="26" height="24" rx="4"/>
+              <rect x="260" y="283" width="26" height="24" rx="4"/><rect x="295" y="283" width="26" height="24" rx="4"/>
+            </g>
+            <text class="node-detail" x="221" y="323">Action</text>
+            <text class="training-label" x="221" y="361">Training only</text>
+            <rect class="node-generation" x="66" y="374" width="222" height="50" rx="8"/>
+            <text class="node-label generation-label" x="177" y="405">Generation expert</text>
+            <g class="future-frames"><rect x="346" y="374" width="52" height="34" rx="5"/><rect x="338" y="381" width="52" height="34" rx="5"/><rect x="330" y="388" width="52" height="34" rx="5"/></g>
+            <text class="node-detail" x="363" y="441">Future</text>
+          </svg><text class="legend" x="16" y="648">Three paradigms, one key difference: the direction of conditioning.</text>
+</svg>
