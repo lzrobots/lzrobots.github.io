@@ -118,3 +118,7 @@ Total duration: 23.467s, 704 frames at 30fps. Concatenated using FFmpeg's concat
 ## PVG short preview — 2026-10-21
 
 `pvg-preview-4s.mp4` uses seconds 2–6 of the existing border-trimmed PVG preview. It retains all three RGB/depth/semantic panels, with no additional spatial crop. The 4-second loop is encoded as 480 × 322 H.264 at 18fps with fast-start metadata and no audio, and is 180,570 bytes (about 181 KB), down from 1,317,077 bytes for the previous 9.875-second preview. The homepage uses this standalone short file, rather than downloading the longer file and only limiting playback.
+
+## MoLA short preview — 2026-10-21
+
+`mola-preview-4s.mp4` uses seconds 6–10 of the official real-world UR5e video at https://logosroboticsgroup.github.io/MoLA/video_realworld/20260512_155544.mp4 . The 4-second loop retains the entire original frame without spatial cropping, skips the opening title, and is encoded as 640 × 360 H.264 at 18fps with fast-start metadata and no audio. The preview is 95,272 bytes (about 95 KB), compared with 12,068,768 bytes for the original 44.5-second video. The homepage loads this standalone short file and loops it normally, rather than loading the full video and seeking into a selected interval.
