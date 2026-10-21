@@ -1,22 +1,32 @@
-// Start every muted preview independently, without hover or playback controls.
+// Load and play a preview only while its frame is hovered or keyboard-focused.
 document.querySelectorAll('.publication video').forEach(video => {
+    const preview = video.closest('.publication-preview');
+    let active = false;
+
     video.muted = true;
-    const start = Number(video.dataset.previewStart || 0);
-    const end = Number(video.dataset.previewEnd || 0);
+
     const play = () => {
-        video.play().catch(() => {});
+        active = true;
+        video.play().then(() => {
+            // The pointer may have left while the video was still loading.
+            if (!active) video.pause();
+        }).catch(() => {});
     };
-    if (end > start) {
-        video.addEventListener('loadedmetadata', () => {
-            video.currentTime = start;
-            play();
-        });
-        video.addEventListener('timeupdate', () => {
-            if (!video.seeking && (video.currentTime < start - 0.1 || video.currentTime >= end)) {
-                video.currentTime = start;
-            }
-        });
-    }
-    play();
-    video.addEventListener('canplay', play, { once: true });
+    const pause = () => {
+        active = false;
+        video.pause();
+    };
+
+    preview.addEventListener('pointerenter', event => {
+        if (event.pointerType !== 'touch') play();
+    });
+    preview.addEventListener('pointerleave', pause);
+    preview.addEventListener('focusin', play);
+    preview.addEventListener('focusout', pause);
+    video.addEventListener('playing', () => {
+        if (!active) video.pause();
+    });
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) pause();
+    });
 });

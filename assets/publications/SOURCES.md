@@ -144,3 +144,7 @@ All 10 active video files are at most 10 seconds; the longest is now 9 seconds. 
 | navol | `assets/publications/navol-preview-8s.mp4` | 8.00s | 387 KB | Official scene1/IMG_5620.mp4, 8–16s |
 | driveweaver | `assets/publications/driveweaver-preview.mp4` | 8.00s | 803 KB | Existing short preview retained. |
 | pvg | `assets/publications/pvg-preview-4s.mp4` | 4.00s | 181 KB | Existing short preview retained. |
+
+## Hover playback — 2026-10-21
+
+All 10 video previews now start paused, play on pointer entry, and pause at the current frame on pointer exit. Keyboard focus also plays the preview, with blur or a hidden tab pausing it. Autoplay has been removed and `preload="none"` avoids downloading the video until interaction. Each `*-poster.webp` is a static frame extracted at 0.25s from the corresponding active preview (520px wide, WebP quality 78); the 10 posters total 151,158 bytes. Preview durations remain 2.93–9 seconds as audited above.
