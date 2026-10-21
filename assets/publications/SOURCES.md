@@ -127,3 +127,20 @@ Replaces the YouTube iframe and its API-controlled interval. Downloaded the offi
 ## MoLA short preview — 2026-10-21
 
 `mola-preview-4s.mp4` uses seconds 6–10 of the official real-world UR5e video at https://logosroboticsgroup.github.io/MoLA/video_realworld/20260512_155544.mp4 . The 4-second loop retains the entire original frame without spatial cropping, skips the opening title, and is encoded as 640 × 360 H.264 at 18fps with fast-start metadata and no audio. The preview is 95,272 bytes (about 95 KB), compared with 12,068,768 bytes for the original 44.5-second video. The homepage loads this standalone short file and loops it normally, rather than loading the full video and seeking into a selected interval.
+
+## Current homepage video limit — 2026-10-21
+
+All 10 active video files are at most 10 seconds; the longest is now 9 seconds. The six over-limit files have been replaced with independent local H.264 excerpts at 18fps, CRF 28, with fast-start metadata and no audio. Existing framing and playback speed are retained without spatial cropping. These replace full-length sources rather than only restricting playback via JavaScript. The total size of the active video files dropped from 137,762,690 bytes to 2,794,955 bytes.
+
+| Paper | Current video | Duration | Size | Source excerpt |
+| --- | --- | ---: | ---: | --- |
+| x-wbc | `assets/publications/x-wbc-preview-8s.mp4` | 8.00s | 303 KB | Official xwbc-hero.mp4, 0–8s |
+| smr | `assets/publications/smr-preview-9s.mp4` | 9.00s | 312 KB | Three 3s excerpts (0–3s, 9–12s, 19–22s) from the previously combined SMR showcase; all three motion categories are retained. Each excerpt is fitted into a 640 × 432 canvas without cropping. |
+| rove | `assets/publications/rove-preview-8s.mp4` | 8.00s | 225 KB | Official ROVE-new.mp4, 18–26s |
+| tacpac | `assets/publications/tacpac-preview-8s.mp4` | 8.00s | 44 KB | Official expansion_card__tacpac__success.mp4, 32–40s |
+| prophrl | `https://logosroboticsgroup.github.io/ProphRL/assets/videos/rl_behavior/episode_000015_ppt.mp4` | 2.93s | 313 KB | Existing short preview retained. |
+| a2world | `assets/publications/a2world-preview-8s.mp4` | 8.00s | 132 KB | Official lift-box-high.mp4, 1–9s |
+| mola | `assets/publications/mola-preview-4s.mp4` | 4.00s | 95 KB | Existing short preview retained. |
+| navol | `assets/publications/navol-preview-8s.mp4` | 8.00s | 387 KB | Official scene1/IMG_5620.mp4, 8–16s |
+| driveweaver | `assets/publications/driveweaver-preview.mp4` | 8.00s | 803 KB | Existing short preview retained. |
+| pvg | `assets/publications/pvg-preview-4s.mp4` | 4.00s | 181 KB | Existing short preview retained. |
