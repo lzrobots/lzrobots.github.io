@@ -148,3 +148,9 @@ All 10 active video files are at most 10 seconds; the longest is now 9 seconds. 
 ## Hover playback — 2026-10-21
 
 All 10 video previews now start paused, play on pointer entry, and pause at the current frame on pointer exit. Keyboard focus also plays the preview, with blur or a hidden tab pausing it. Autoplay has been removed and `preload="none"` avoids downloading the video until interaction. Each `*-poster.webp` is a static frame extracted at 0.25s from the corresponding active preview (520px wide, WebP quality 78); the 10 posters total 151,158 bytes. Preview durations remain 2.93–9 seconds as audited above.
+
+## TIDE and 4D-VLA selected previews — 2026-10-21
+
+- TIDE: official homepage's first hero video, https://logosroboticsgroup.github.io/TIDE/static/videos/towel-folding-tide.mp4 . `tide-preview-8s.mp4` uses seconds 10–18 (towel folding). Paper and code links come from https://logosroboticsgroup.github.io/TIDE/ . Placed directly before ROVE.
+- 4D-VLA: official repository demo, https://raw.githubusercontent.com/LogosRoboticsGroup/4D-VLA/main/docs/resources/vla-video.mp4 . `4dvla-preview-8s.mp4` uses seconds 50–58 (real-world instruction following). Paper: https://arxiv.org/abs/2506.22242 ; code and primary title/media destination: https://github.com/LogosRoboticsGroup/4D-VLA . No separate project website was linked by the official repository. Placed last in Selected Publications.
+- Both previews retain the entire 16:9 source frame and original playback speed, with no spatial cropping or stretching. Encoded as 640 × 360 H.264 at 18fps, CRF 28, no audio, with fast-start metadata. Each has a matching first-frame WebP poster and follows the existing homepage playback behavior.
