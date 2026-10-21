@@ -166,3 +166,24 @@ Replaced the 50–58s precise-placement/instruction-following excerpt with secon
 ## 4D-VLA demo-only crop — 2026-10-21
 
 Cropped the same official 38–46s excerpt to its left-hand 2 × 2 robot-demo panel, removing the entire right-hand text column and outer white margins at the user's request. Source crop is `1220:924:28:96` on the 1920 × 1080 original, then scaled to 640 × 484 without stretching. `4dvla-demo-cropped-8s.mp4` remains 8 seconds at original speed, H.264 CRF 28, 18fps, no audio and fast-start metadata (142,959 bytes). `4dvla-demo-cropped-poster.webp` uses the same crop at 0.25s. The shared preview frame and hover playback behavior are unchanged.
+
+## Selected publication summaries — 2026-10-21
+
+Each homepage entry includes an original 1–2 sentence introduction based on its official project page or paper. The summary placement and pale-yellow background follow the layout at https://web.mit.edu/phillipi/ . Bibliographic metadata and preview media are unchanged.
+
+| Paper | Primary source for the introduction |
+| --- | --- |
+| x-wbc | https://logosroboticsgroup.github.io/x-wbc/ |
+| smr | https://logosroboticsgroup.github.io/SMR/ |
+| tide | https://logosroboticsgroup.github.io/TIDE/ |
+| rove | https://xpeng-robotics.github.io/rove/ |
+| fdm | https://logosroboticsgroup.github.io/FDM/ |
+| tacpac | https://logosroboticsgroup.github.io/TacPAC/ |
+| prophrl | https://logosroboticsgroup.github.io/ProphRL/ |
+| a2world | https://logosroboticsgroup.github.io/A2World/ |
+| mola | https://logosroboticsgroup.github.io/MoLA/ |
+| navol | https://logosroboticsgroup.github.io/NavOL/ |
+| defi | https://arxiv.org/abs/2604.16391 |
+| driveweaver | https://arxiv.org/abs/2606.31918 |
+| pvg | https://fudan-zvg.github.io/PVG/ |
+| 4dvla | https://arxiv.org/abs/2506.22242 |

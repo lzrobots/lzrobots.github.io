@@ -307,6 +307,13 @@ a:focus {
     margin: 0;
 }
 
+.publication-details .publication-summary {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    background: #fffedc;
+}
+
 .publication-venue {
     font-style: italic;
 }
