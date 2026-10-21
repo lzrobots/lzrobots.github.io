@@ -158,3 +158,7 @@ All 10 video previews now start paused, play on pointer entry, and pause at the 
 ## MoLA demo-only correction — 2026-10-21
 
 The earlier 6–10s excerpt still contained the source video's opening title overlay. Replaced it with `mola-demo-5s.mp4`, seconds 10–15 of https://logosroboticsgroup.github.io/MoLA/video_realworld/20260512_155544.mp4 . All frames in this 5-second excerpt show the real UR5e manipulation demo, without the introductory title or outro. Original framing and speed are retained, encoded at 640 × 360, 18fps, H.264 CRF 28, no audio and fast-start metadata (89,258 bytes). MoLA no longer uses a separate poster; `preload="auto"` displays the actual demo's first frame while paused. Hover playback and pointer-exit pause are unchanged.
+
+## 4D-VLA pick-and-place preview — 2026-10-21
+
+Replaced the 50–58s precise-placement/instruction-following excerpt with seconds 38–46 of the same official `vla-video.mp4` (https://raw.githubusercontent.com/LogosRoboticsGroup/4D-VLA/main/docs/resources/vla-video.mp4). This excerpt shows Task 2, the real robot picking green cubes from a cluttered table and placing them into a plate, with visible gripper motion throughout and no introductory title. `4dvla-pick-place-8s.mp4` retains the entire source frame and original speed; encoded as 640 × 360 H.264, 18fps, CRF 28, no audio, fast-start metadata, 8 seconds and 82,038 bytes. `4dvla-pick-place-poster.webp` is the demo frame at 0.25s (520px wide, WebP quality 78). Hover play and pointer-exit pause are unchanged.
