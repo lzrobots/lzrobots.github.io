@@ -162,3 +162,7 @@ The earlier 6–10s excerpt still contained the source video's opening title ove
 ## 4D-VLA pick-and-place preview — 2026-10-21
 
 Replaced the 50–58s precise-placement/instruction-following excerpt with seconds 38–46 of the same official `vla-video.mp4` (https://raw.githubusercontent.com/LogosRoboticsGroup/4D-VLA/main/docs/resources/vla-video.mp4). This excerpt shows Task 2, the real robot picking green cubes from a cluttered table and placing them into a plate, with visible gripper motion throughout and no introductory title. `4dvla-pick-place-8s.mp4` retains the entire source frame and original speed; encoded as 640 × 360 H.264, 18fps, CRF 28, no audio, fast-start metadata, 8 seconds and 82,038 bytes. `4dvla-pick-place-poster.webp` is the demo frame at 0.25s (520px wide, WebP quality 78). Hover play and pointer-exit pause are unchanged.
+
+## 4D-VLA demo-only crop — 2026-10-21
+
+Cropped the same official 38–46s excerpt to its left-hand 2 × 2 robot-demo panel, removing the entire right-hand text column and outer white margins at the user's request. Source crop is `1220:924:28:96` on the 1920 × 1080 original, then scaled to 640 × 484 without stretching. `4dvla-demo-cropped-8s.mp4` remains 8 seconds at original speed, H.264 CRF 28, 18fps, no audio and fast-start metadata (142,959 bytes). `4dvla-demo-cropped-poster.webp` uses the same crop at 0.25s. The shared preview frame and hover playback behavior are unchanged.
