@@ -114,3 +114,7 @@ Demo fallback audit: the official DeFi and SGDrive repository trees and READMEs 
 3. Motion with a hand-held bag: https://logosroboticsgroup.github.io/SMR/static/videos/bag-smr.mp4 (5.333s).
 
 Total duration: 23.467s, 704 frames at 30fps. Concatenated using FFmpeg's concat demuxer and H.264 stream copy (`-c:v copy`), without re-encoding, spatial scaling, or cropping. The recordings retain their original 1078 × 720 / 908 × 720 dimensions inside the shared 16:9 background frame.
+
+## PVG short preview — 2026-10-21
+
+`pvg-preview-4s.mp4` uses seconds 2–6 of the existing border-trimmed PVG preview. It retains all three RGB/depth/semantic panels, with no additional spatial crop. The 4-second loop is encoded as 480 × 322 H.264 at 18fps with fast-start metadata and no audio, and is 180,570 bytes (about 181 KB), down from 1,317,077 bytes for the previous 9.875-second preview. The homepage uses this standalone short file, rather than downloading the longer file and only limiting playback.
