@@ -1,6 +1,6 @@
 # Publication preview sources
 
-FDM MoT pipeline preview (`fdm-architecture.svg`): uses the original `mot-diagram` SVG and directed-flow CSS animation from https://logosroboticsgroup.github.io/FDM/#pipeline-detail and https://logosroboticsgroup.github.io/FDM/diagrams.css . This is the single “Mixture-of-transformers (MoT)” diagram with context, action and generation experts, MoT attention, action-feature injection and future-supervision backpropagation. The source is an animated vector figure, not a video file. Its original geometry, colors and animation are preserved in a standalone SVG (about 15 KB). It replaces the earlier three-panel VLA/WAM/FDM comparison preview.
+FDM MoT pipeline source (`fdm-architecture.svg`; now used to render the static cover `fdm-poster.webp`): uses the original `mot-diagram` SVG and directed-flow CSS animation from https://logosroboticsgroup.github.io/FDM/#pipeline-detail and https://logosroboticsgroup.github.io/FDM/diagrams.css . This is the single “Mixture-of-transformers (MoT)” diagram with context, action and generation experts, MoT attention, action-feature injection and future-supervision backpropagation. The source is an animated vector figure, not a video file. Its original geometry, colors and animation are preserved in a standalone SVG (about 15 KB). It replaces the earlier three-panel VLA/WAM/FDM comparison preview.
 
 Local WebP copies resized from the following project and paper figures on 2026-10-21.
 
@@ -134,12 +134,12 @@ All 10 active video files are at most 10 seconds; the longest is now 9 seconds. 
 
 | Paper | Current video | Duration | Size | Source excerpt |
 | --- | --- | ---: | ---: | --- |
-| x-wbc | `assets/publications/x-wbc-preview-8s.mp4` | 8.00s | 303 KB | Official xwbc-hero.mp4, 0–8s |
+| x-wbc | `assets/publications/x-wbc-preview-10s.mp4` | 10.00s | 356 KB | Official xwbc-hero.mp4, 0–8s boxing + 23–25s football; updated 2026-10-22 |
 | smr | `assets/publications/smr-preview-9s.mp4` | 9.00s | 312 KB | Three 3s excerpts (0–3s, 9–12s, 19–22s) from the previously combined SMR showcase; all three motion categories are retained. Each excerpt is fitted into a 640 × 432 canvas without cropping. |
 | rove | `assets/publications/rove-preview-8s.mp4` | 8.00s | 225 KB | Official ROVE-new.mp4, 18–26s |
 | tacpac | `assets/publications/tacpac-preview-8s.mp4` | 8.00s | 44 KB | Official expansion_card__tacpac__success.mp4, 32–40s |
-| prophrl | `https://logosroboticsgroup.github.io/ProphRL/assets/videos/rl_behavior/episode_000015_ppt.mp4` | 2.93s | 313 KB | Existing short preview retained. |
-| a2world | `assets/publications/a2world-preview-8s.mp4` | 8.00s | 132 KB | Official lift-box-high.mp4, 1–9s |
+| prophrl | `assets/publications/prophrl-control-preview-10s.mp4` | 10.00s | 90 KB | User-provided screen recording, 8–18s; updated 2026-10-22 |
+| a2world | `assets/publications/a2world-chain-preview-8s.mp4` | 8.00s | 145 KB | Official real-world put-chain-in-box.mp4, 68–76s; updated 2026-10-22 |
 | mola | `assets/publications/mola-preview-4s.mp4` | 4.00s | 95 KB | Existing short preview retained. |
 | navol | `assets/publications/navol-preview-8s.mp4` | 8.00s | 387 KB | Official scene1/IMG_5620.mp4, 8–16s |
 | driveweaver | `assets/publications/driveweaver-preview.mp4` | 8.00s | 803 KB | Existing short preview retained. |
@@ -194,3 +194,47 @@ Each homepage entry includes an original 1–2 sentence introduction based on it
 - Paper and introduction: https://arxiv.org/abs/2609.23169 and https://yiboz2001.github.io/UltraTex/ . The two-sentence description covers background token dropping, block-sparse foreground attention, and foreground-aware decoding for 2K multi-view texturing.
 - Preview: official gallery at https://yiboz2001.github.io/UltraTex/assets/teaser.jpg , converted proportionally to a 640px-wide WebP without cropping. The project page links a full YouTube presentation rather than exposing a short self-hosted demo video, so the lightweight gallery image is used for the compact preview.
 - Current code: https://github.com/yiboz2001/UltraTex ; dataset: https://huggingface.co/datasets/YiboZhang2001/G-buffer-TexVerse . These replace the older TexVerse links in the full list.
+
+
+## X-WBC boxing and football preview — 2026-10-22
+
+`x-wbc-preview-10s.mp4` appends the football shot and celebration from seconds 23–25 of the [official hero video](https://logosroboticsgroup.github.io/x-wbc/assets/videos/xwbc-hero.mp4) to the existing 0–8s boxing preview, in that order. The original video's football sequence begins around 21.2s; the selected two seconds show the kick, the ball entering the goal, and the raised-arm celebration. The black tail beginning at 25.5s is excluded.
+
+The existing 8-second preview is preserved using H.264 stream copy. Only the new football excerpt is encoded to match its 640 × 360, 18fps, H.264/yuv420p format (CRF 28), then concatenated using stream copy with fast-start metadata and no audio. The full original frame and playback speed are retained. Total duration is exactly 10 seconds, 180 frames; size is 355,923 bytes. The existing first-frame poster, hover playback, and publication links are retained.
+
+
+## FDM static cover and four-policy hover video — 2026-10-22
+
+At rest, the FDM preview shows `fdm-poster.webp`, a static 1160 × 456 WebP frame rendered from the existing animated `fdm-architecture.svg` in its training state. CSS color variables are resolved before rasterization, retaining the context/action/generation experts, arrows, and labels. The source diagram is preserved.
+
+On pointer hover or keyboard focus, `fdm-drawer-comparison-8s.mp4` shows the four drawer-packing recordings from the [official policy-comparison section](https://logosroboticsgroup.github.io/FDM/#policy-comparisons), in the same order as the user's reference screenshot:
+
+1. [FDM w/ VLM](https://logosroboticsgroup.github.io/FDM/assets/comparisons/drawer/FDM-VLM.mp4), labeled “FDM w/ VLM” and “Ours”.
+2. [FDM w/ VGM](https://logosroboticsgroup.github.io/FDM/assets/comparisons/drawer/FDM-VGM.mp4), labeled “FDM w/ VGM” and “Ours”.
+3. [π₀.₅](https://logosroboticsgroup.github.io/FDM/assets/comparisons/drawer/pi0.5.mp4), labeled “π₀.₅”.
+4. [FastWAM-Joint](https://logosroboticsgroup.github.io/FDM/assets/comparisons/drawer/FastWAM-joint.mp4), labeled “FastWAM-Joint”.
+
+Each recording uses source seconds 8–16 at original speed. All three camera views are retained in full, scaled proportionally from 640 × 720 to 304 × 342 and arranged side by side on a 1280 × 390 canvas with method names above. Encoded as H.264/yuv420p, 18fps, CRF 26, no audio, and fast-start metadata. Duration: 8 seconds / 144 frames. Size: 271,900 bytes. Leaving the preview restores the architecture cover and resets the clip to its beginning; hiding the tab also pauses it. Other publication previews retain their existing automatic playback behavior.
+
+
+## A2World chain-in-box real execution — 2026-10-22
+
+Replaces the earlier lift-box preview with the “Put chain in the box” real-world execution identified by the user's screenshot on the [official project page](https://logosroboticsgroup.github.io/A2World/). Source: https://logosroboticsgroup.github.io/A2World/docs/resources/real-world-execution/put-chain-in-box.mp4 (93.208s, 1280 × 720, 24fps). This is the landscape real-robot recording, separate from the portrait world-model rollout of the similarly named task.
+
+`a2world-chain-preview-8s.mp4` uses source seconds 68–76, showing the final placement/release and the grippers withdrawing from the box. The entire original frame and playback speed are preserved; scaled to 640 × 360 and encoded as H.264/yuv420p at 18fps, CRF 28, with no audio and fast-start metadata. Duration: 8 seconds / 144 frames. Size: 145,179 bytes. `a2world-chain-poster.webp` is a frame at 0.25s in the new preview, scaled to 520 × 293. The page retains its existing muted automatic looping and publication links.
+
+
+## ProphRL user-provided interactive control recording — 2026-10-22
+
+Replaces the remote PlaceBowl clip with the user's local screen recording `/Users/gc/Downloads/录屏2025-11-27 22.29.15.MOV` (44.55s, 1566 × 1230, 60fps). The recording shows “Interactive Demo: 3-step precise control”, including the selected control sequence, distance choices, and generated robot motion.
+
+`prophrl-control-preview-10s.mp4` uses source seconds 8–18, retaining the full interface and original playback speed, with no spatial crop. Scaled proportionally to 800 × 628; encoded as H.264/yuv420p at 18fps, CRF 26, with no audio and fast-start metadata. Duration: 10 seconds / 180 frames. Size: 90,113 bytes. `prophrl-control-poster.webp` is a frame at 0.25s in the new preview, scaled to 520px wide. The original recording stays outside the repository. Existing publication links and automatic muted looping are retained.
+
+
+## 4D-VLA two-instruction comparison from PowerPoint — 2026-10-22
+
+Source: the user's `/Users/gc/Downloads/4dvla.pptx`, slide 1. The first two videos in the top row are mapped through `ppt/slides/_rels/slide1.xml.rels` to `ppt/media/media1.mp4` (left: “green, blue and red”, 12.4s) and `ppt/media/media2.mp4` (right: “green, red and blue”, 10.2s). Both embedded videos are 640 × 480 at 5fps; they are extracted directly from the PPTX archive without editing the presentation.
+
+`4dvla-cube-order-comparison.mp4` combines these complete recordings side by side, retaining their original framing, order, and playback speed. The source instruction “Put the cubes on the plate in the order of …” and both color sequences appear above the videos in yellow on black, matching the reference screenshot. Each video is scaled to 480 × 360, below a 72px header, for a 960 × 432 composition. The shorter right-hand recording holds its final frame for the last 2.2 seconds.
+
+Duration: 12.4 seconds / 62 frames at the original 5fps; preserves the full three-cube sequence in both recordings. H.264/yuv420p, CRF 26, no audio, fast-start metadata; 327,355 bytes. `4dvla-cube-order-poster.webp` is a frame at 0.2s, retaining the instruction labels. This replaces the earlier cropped 8-second pick-and-place video. Existing publication links and muted automatic looping are retained.

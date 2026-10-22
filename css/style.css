@@ -346,6 +346,20 @@ a:focus {
     inset: 0;
 }
 
+.publication-hover-preview video,
+.publication-hover-preview.is-preview-playing .publication-cover {
+    opacity: 0;
+}
+
+.publication-hover-preview .publication-cover {
+    z-index: 1;
+    pointer-events: none;
+}
+
+.publication-hover-preview.is-preview-playing video {
+    opacity: 1;
+}
+
 .publication-details h3 {
     margin: 0 0 3px;
     font-size: 1em;
