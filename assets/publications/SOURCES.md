@@ -137,7 +137,7 @@ All 10 active video files are at most 10 seconds; the longest is now 9 seconds. 
 | x-wbc | `assets/publications/x-wbc-preview-10s.mp4` | 10.00s | 356 KB | Official xwbc-hero.mp4, 0–8s boxing + 23–25s football; updated 2026-10-22 |
 | smr | `assets/publications/smr-preview-9s.mp4` | 9.00s | 312 KB | Three 3s excerpts (0–3s, 9–12s, 19–22s) from the previously combined SMR showcase; all three motion categories are retained. Each excerpt is fitted into a 640 × 432 canvas without cropping. |
 | rove | `assets/publications/rove-preview-8s.mp4` | 8.00s | 225 KB | Official ROVE-new.mp4, 18–26s |
-| tacpac | `assets/publications/tacpac-preview-8s.mp4` | 8.00s | 44 KB | Official expansion_card__tacpac__success.mp4, 32–40s |
+| tacpac | `assets/publications/tacpac-complete-task.mp4` | 56.64s | 723 KB | Complete official expansion_card__tacpac__success.mp4, including grasping, insertion, and release; updated 2026-10-23 |
 | prophrl | `assets/publications/prophrl-control-preview-10s.mp4` | 10.00s | 90 KB | User-provided screen recording, 8–18s; updated 2026-10-22 |
 | a2world | `assets/publications/a2world-chain-preview-8s.mp4` | 8.00s | 145 KB | Official real-world put-chain-in-box.mp4, 68–76s; updated 2026-10-22 |
 | mola | `assets/publications/mola-preview-4s.mp4` | 4.00s | 95 KB | Existing short preview retained. |
@@ -238,3 +238,9 @@ Source: the user's `/Users/gc/Downloads/4dvla.pptx`, slide 1. The first two vide
 `4dvla-cube-order-comparison.mp4` combines these complete recordings side by side, retaining their original framing, order, and playback speed. The source instruction “Put the cubes on the plate in the order of …” and both color sequences appear above the videos in yellow on black, matching the reference screenshot. Each video is scaled to 480 × 360, below a 72px header, for a 960 × 432 composition. The shorter right-hand recording holds its final frame for the last 2.2 seconds.
 
 Duration: 12.4 seconds / 62 frames at the original 5fps; preserves the full three-cube sequence in both recordings. H.264/yuv420p, CRF 26, no audio, fast-start metadata; 327,355 bytes. `4dvla-cube-order-poster.webp` is a frame at 0.2s, retaining the instruction labels. This replaces the earlier cropped 8-second pick-and-place video. Existing publication links and muted automatic looping are retained.
+
+## TacPAC complete insertion task — 2026-10-23
+
+Replaces the 32–40s excerpt with the complete [official successful expansion-card insertion recording](https://logosroboticsgroup.github.io/TacPAC/assets/videos/expansion_card__tacpac__success.mp4). `tacpac-complete-task.mp4` retains all 1,416 source frames: approaching and grasping the card, moving it to the motherboard, aligning and inserting it, then releasing it and withdrawing the gripper. The loop restarts only after the recording finishes.
+
+Duration: 56.64 seconds at the original 25fps and 960 × 540 resolution. The H.264 video stream is copied without re-encoding, trimming, cropping, or changing playback speed, with fast-start metadata for web playback; approximately 723 KB. `tacpac-poster.webp` is regenerated from 0.25s of this complete recording at 520px wide. Existing publication links and muted automatic looping are retained. This supersedes the earlier short TacPAC excerpts and the historical 10-second limit above.
