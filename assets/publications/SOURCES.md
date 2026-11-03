@@ -1,5 +1,9 @@
 # Publication preview sources
 
+## PRICE Figure 1 — 2026-11-03
+
+`price-figure1.webp` uses Figure 1 from https://arxiv.org/html/2609.38890v1/figures/main_0917.png (paper: https://arxiv.org/abs/2609.38890). The complete figure is resized proportionally from 5475 × 2720 to 1040 × 517, composited on white, and encoded as WebP at quality 90 without cropping. The highlighted entry appears directly after TacPAC. Its description is based on the paper abstract; the paper and author homepage currently provide no public project-page or code link.
+
 FDM MoT pipeline source (`fdm-architecture.svg`; now animated in the opening of `fdm-overview-comparison.mp4`): uses the original `mot-diagram` SVG and directed-flow CSS animation from https://logosroboticsgroup.github.io/FDM/#pipeline-detail and https://logosroboticsgroup.github.io/FDM/diagrams.css . This is the single “Mixture-of-transformers (MoT)” diagram with context, action and generation experts, MoT attention, action-feature injection and future-supervision backpropagation. The source is an animated vector figure, not a video file. Its original geometry, colors and animation are preserved in a standalone SVG (about 15 KB). It replaces the earlier three-panel VLA/WAM/FDM comparison preview.
 
 Local WebP copies resized from the following project and paper figures on 2026-10-21.
