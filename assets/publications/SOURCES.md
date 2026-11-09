@@ -306,3 +306,8 @@ Replaced the pipeline preview with the first visualization figure from the offic
 ## STEER original Figure 1 — 2026-11-09
 
 Verified Figure 1 (“Overview of STEER”) in https://arxiv.org/html/2611.00718v1#S3.F1 . `steer-figure1.png` is the original 3499 × 1643 RGBA PNG downloaded byte-for-byte from https://arxiv.org/html/2611.00718v1/figures/main_0506.png (885,169 bytes). The homepage now uses this original directly, without resizing, recompression, or cropping. This also preserves transparency correctly: the previous RGB conversion discarded alpha and darkened the background.
+
+
+## BézierGS title-frame removal — 2026-11-09
+
+Removed the residual first frame containing the black Separation title from `beziergs-separation-preview.mp4`. `beziergs-separation-clean.mp4` retains the remaining 143 frames at 18fps, with timestamps reset and playback speed unchanged. Its poster uses the first actual four-layer rendering frame. Decoded and checked every output frame: no black title frames remain. Updated asset filenames prevent stale cached video/poster reuse.
