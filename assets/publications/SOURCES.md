@@ -254,3 +254,40 @@ Duration: 56.64 seconds at the original 25fps and 960 × 540 resolution. The H.2
 `fdm-overview-comparison.mp4` replaces the static-cover/hover interaction with a single automatically playing, muted loop. The first 6 seconds show the original `fdm-architecture.svg` with its directed-flow animation running at its original speed (five 1.2-second cycles). Chromium renders 108 frames by sampling the original CSS animations at 18fps. The next 8 seconds contain the entire existing `fdm-drawer-comparison-8s.mp4`, with all four policy labels, camera views, and original playback speed retained.
 
 Both segments fit inside a 1280 × 720 canvas with the site's existing gray preview background, without cropping. The pipeline scales proportionally to 1280 × 502; the comparison remains 1280 × 390. Encoded as H.264/yuv420p, 18fps, CRF 24, no audio, with fast-start metadata. Total: 14 seconds / 252 frames. `fdm-poster.webp` is regenerated at 0.25s from the combined video, at 520px wide, solely as its loading fallback. The static image overlay and hover requirement are removed; existing publication links and shared automatic playback behavior are retained. This supersedes the 2026-10-22 FDM hover interaction above.
+
+
+## Highlighted additions and hyperlink audit — 2026-11-09
+
+Added the eight requested papers, with official overview figures resized proportionally as WebP. Paper, project, and code links match the official repositories and paper records. Checked all external hyperlinks in both HTML pages; successful redirects were replaced with their current destinations, while restricted or unavailable endpoints were retained. STEER now has a public arXiv paper, superseding the older access note above.
+
+- `steer.webp`: https://arxiv.org/html/2611.00718v1/figures/main_0506.png; paper: https://arxiv.org/abs/2611.00718; project/code: https://arxiv.org/abs/2611.00718
+- `beziergs.webp`: https://raw.githubusercontent.com/LogosIntelligenceLab/BezierGS/main/assets/pipeline.png; paper: https://arxiv.org/abs/2506.22099; project/code: https://arxiv.org/abs/2506.22099
+- `irgs.webp`: https://raw.githubusercontent.com/LogosIntelligenceLab/IRGS/main/assets/pipeline.png; paper: https://arxiv.org/abs/2412.15867; project/code: https://logosintelligencelab.github.io/IRGS/
+- `tensoflow.webp`: https://raw.githubusercontent.com/LogosIntelligenceLab/tensoflow/main/assets/pipeline.png; paper: https://arxiv.org/abs/2503.18328; project/code: https://arxiv.org/abs/2503.18328
+- `diffusion2.webp`: https://raw.githubusercontent.com/LogosIntelligenceLab/diffusion-square/main/assets/pipeline.png; paper: https://arxiv.org/abs/2404.02148; project/code: https://arxiv.org/abs/2404.02148
+- `gs-lidar.webp`: https://raw.githubusercontent.com/LogosIntelligenceLab/GS-LiDAR/main/assets/pipeline.png; paper: https://arxiv.org/abs/2501.13971; project/code: https://arxiv.org/abs/2501.13971
+- `tetrahedron-splatting.webp`: https://raw.githubusercontent.com/LogosIntelligenceLab/tet-splatting/main/assets/pipeline.png; paper: https://arxiv.org/abs/2406.01579; project/code: https://logosintelligencelab.github.io/tet-splatting/
+- `4dgs.webp`: https://raw.githubusercontent.com/LogosIntelligenceLab/4d-gaussian-splatting/main/assets/pipeline.png; paper: https://arxiv.org/abs/2310.10642; project/code: https://logosintelligencelab.github.io/4d-gaussian-splatting/
+
+
+## Official video previews — 2026-11-09
+
+Replaced static overview figures with official dynamic demos. Local H.264 previews preserve framing and speed, fit within 640 × 360 without cropping, and use muted autoplay with looping. Sources shorter than ten seconds are retained in full; Diffusion² uses its first ten seconds. GS-LiDAR converts the official animated GIF to MP4. Posters are extracted at 0.25 seconds.
+
+- `irgs-preview.mp4`: https://logosintelligencelab.github.io/IRGS/img/videos/teaser.mp4 (source duration 6.732s).
+- `diffusion2-preview.mp4`: https://github.com/user-attachments/assets/15b15931-73ec-4a9d-8d6a-d190313ca31d (source duration 35.733s).
+- `gs-lidar-preview.mp4`: https://raw.githubusercontent.com/LogosIntelligenceLab/GS-LiDAR/main/assets/3d.gif (source duration 5.100s).
+- `4dgs-preview.mp4`: https://logosintelligencelab.github.io/4d-gaussian-splatting/static/videos/free_view.mp4 (source duration 8.033s).
+- `tetrahedron-splatting-preview.mp4`: https://logosintelligencelab.github.io/tet-splatting/img/videos/an_amigurumi_bulldozer.mp4 (source duration 4.000s).
+- BézierGS: official README links https://www.youtube.com/watch?v=lSMn9V2rBLc . Embedded the official YouTube video with muted autoplay and looping; playback depends on YouTube access.
+- STEER and TensoFlow: no public video located in paper/project/repository sources; retain static figures.
+
+
+## IRGS left-panel preview — 2026-11-09
+
+At the user’s request, `irgs-left-preview.mp4` retains only the left (Global illumination) video from the official IRGS teaser. Cropped the 2160 × 524 source to 710 × 450 at (14, 14), removing the other two panels, outer margins, and caption. Scaled proportionally to 640 × 406; retained the complete source duration and original playback speed. H.264/yuv420p, 18fps, CRF 26, muted autoplay and looping. Poster extracted at 0.25s. Source: https://logosintelligencelab.github.io/IRGS/img/videos/teaser.mp4 .
+
+
+## BézierGS local video — 2026-11-09
+
+Replaced the YouTube iframe with a self-hosted MP4 at the user’s request. `beziergs-preview.mp4` uses seconds 5–13 of the official author video linked in the repository README (https://www.youtube.com/watch?v=lSMn9V2rBLc), downloaded as a source asset. The complete frame and original speed are preserved, scaled to 640 × 360, H.264/yuv420p, 18fps, CRF 26, no audio, fast-start metadata. Poster extracted at 0.25s. No YouTube iframe or runtime request is used for this entry; its video link also points to the local file.
