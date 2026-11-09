@@ -291,3 +291,8 @@ At the user’s request, `irgs-left-preview.mp4` retains only the left (Global i
 ## BézierGS local video — 2026-11-09
 
 Replaced the YouTube iframe with a self-hosted MP4 at the user’s request. `beziergs-preview.mp4` uses seconds 5–13 of the official author video linked in the repository README (https://www.youtube.com/watch?v=lSMn9V2rBLc), downloaded as a source asset. The complete frame and original speed are preserved, scaled to 640 × 360, H.264/yuv420p, 18fps, CRF 26, no audio, fast-start metadata. Poster extracted at 0.25s. No YouTube iframe or runtime request is used for this entry; its video link also points to the local file.
+
+
+## BézierGS four-layer Waymo separation — 2026-11-09
+
+Replaced the method-comparison excerpt with the user-selected Waymo decomposition shot from seconds 16–24 of the same official author video. `beziergs-separation-preview.mp4` crops the 1280 × 720 source to 810 × 720 at (244, 0), retaining all four RGB, Depth, Dynamic RGB, and Background RGB rows and their labels while removing the surrounding black margins and external title. Scaled proportionally to 640 × 568 at original speed, H.264/yuv420p, 18fps, CRF 26, no audio, fast-start metadata. Poster extracted at 0.25s. Local autoplay and looping are retained.
