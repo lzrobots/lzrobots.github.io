@@ -296,3 +296,13 @@ Replaced the YouTube iframe with a self-hosted MP4 at the user’s request. `bez
 ## BézierGS four-layer Waymo separation — 2026-11-09
 
 Replaced the method-comparison excerpt with the user-selected Waymo decomposition shot from seconds 16–24 of the same official author video. `beziergs-separation-preview.mp4` crops the 1280 × 720 source to 810 × 720 at (244, 0), retaining all four RGB, Depth, Dynamic RGB, and Background RGB rows and their labels while removing the surrounding black margins and external title. Scaled proportionally to 640 × 568 at original speed, H.264/yuv420p, 18fps, CRF 26, no audio, fast-start metadata. Poster extracted at 0.25s. Local autoplay and looping are retained.
+
+
+## TensoFlow rendering results — 2026-11-09
+
+Replaced the pipeline preview with the first visualization figure from the official repository: https://raw.githubusercontent.com/LogosIntelligenceLab/tensoflow/main/assets/exp_material_0.png . `tensoflow-rendering.webp` preserves the complete rendering-results figure (dragon, vehicle, robot; albedo, metallic, roughness, normals and variance), resized proportionally from 3250 × 1701 to 1040 × 544 without cropping, WebP quality 90.
+
+
+## STEER original Figure 1 — 2026-11-09
+
+Verified Figure 1 (“Overview of STEER”) in https://arxiv.org/html/2611.00718v1#S3.F1 . `steer-figure1.png` is the original 3499 × 1643 RGBA PNG downloaded byte-for-byte from https://arxiv.org/html/2611.00718v1/figures/main_0506.png (885,169 bytes). The homepage now uses this original directly, without resizing, recompression, or cropping. This also preserves transparency correctly: the previous RGB conversion discarded alpha and darkened the background.

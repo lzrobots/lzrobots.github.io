@@ -1,19 +1,34 @@
-// Autoplay previews without pointer interaction, and resume when the tab returns.
+// Load and play previews only while visible to avoid decoding every video at once.
 const publicationVideos = document.querySelectorAll('.publication .publication-preview:not([data-hover-preview]) video');
-
+const visibleVideos = new Set();
 const updatePreviewPlayback = () => {
     publicationVideos.forEach(video => {
-        video.muted = true;
-        if (document.hidden) {
+        const shouldPlay = !document.hidden && visibleVideos.has(video);
+        if (!shouldPlay) {
             video.pause();
-        } else {
-            video.play().catch(() => {});
+            return;
         }
+        const source = video.querySelector('source[data-src]');
+        if (source) {
+            source.src = source.dataset.src;
+            source.removeAttribute('data-src');
+            video.load();
+        }
+        video.muted = true;
+        video.play().then(() => {
+            if (document.hidden || !visibleVideos.has(video)) video.pause();
+        }).catch(() => {});
     });
 };
-
+const previewObserver = new IntersectionObserver(entries => {
+    entries.forEach(({ target, isIntersecting }) => {
+        if (isIntersecting) visibleVideos.add(target);
+        else visibleVideos.delete(target);
+    });
+    updatePreviewPlayback();
+}, { threshold: 0 });
+publicationVideos.forEach(video => previewObserver.observe(video));
 document.addEventListener('visibilitychange', updatePreviewPlayback);
-updatePreviewPlayback();
 
 // Hover previews show their static cover again as soon as interaction ends.
 document.querySelectorAll('.publication-preview[data-hover-preview]').forEach(preview => {
