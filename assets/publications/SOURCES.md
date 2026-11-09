@@ -311,3 +311,6 @@ Verified Figure 1 (“Overview of STEER”) in https://arxiv.org/html/2611.00718
 ## BézierGS title-frame removal — 2026-11-09
 
 Removed the residual first frame containing the black Separation title from `beziergs-separation-preview.mp4`. `beziergs-separation-clean.mp4` retains the remaining 143 frames at 18fps, with timestamps reset and playback speed unchanged. Its poster uses the first actual four-layer rendering frame. Decoded and checked every output frame: no black title frames remain. Updated asset filenames prevent stale cached video/poster reuse.
+
+
+STEER deployment correction: added the downloaded original PNG to version control so the local image reference is included in GitHub Pages deployment. The preview and its click-through now both use `assets/publications/steer-figure1.png`; the separate paper link continues to point to the paper.
