@@ -20,15 +20,34 @@ const updatePreviewPlayback = () => {
         }).catch(() => {});
     });
 };
-const previewObserver = new IntersectionObserver(entries => {
-    entries.forEach(({ target, isIntersecting }) => {
-        if (isIntersecting) visibleVideos.add(target);
-        else visibleVideos.delete(target);
-    });
-    updatePreviewPlayback();
-}, { threshold: 0 });
-publicationVideos.forEach(video => previewObserver.observe(video));
-document.addEventListener('visibilitychange', updatePreviewPlayback);
+const posterVideos = document.querySelectorAll('.publication-preview video[data-poster]');
+const loadPoster = video => {
+    video.poster = video.dataset.poster;
+    video.removeAttribute('data-poster');
+};
+
+if ('IntersectionObserver' in window) {
+    const posterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(({ target, isIntersecting }) => {
+            if (!isIntersecting) return;
+            loadPoster(target);
+            observer.unobserve(target);
+        });
+    }, { rootMargin: '200px 0px' });
+    posterVideos.forEach(video => posterObserver.observe(video));
+
+    const previewObserver = new IntersectionObserver(entries => {
+        entries.forEach(({ target, isIntersecting }) => {
+            if (isIntersecting) visibleVideos.add(target);
+            else visibleVideos.delete(target);
+        });
+        updatePreviewPlayback();
+    }, { threshold: 0 });
+    publicationVideos.forEach(video => previewObserver.observe(video));
+    document.addEventListener('visibilitychange', updatePreviewPlayback);
+} else {
+    posterVideos.forEach(loadPoster);
+}
 
 // Hover previews show their static cover again as soon as interaction ends.
 document.querySelectorAll('.publication-preview[data-hover-preview]').forEach(preview => {

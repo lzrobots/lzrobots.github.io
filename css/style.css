@@ -137,6 +137,10 @@ a:focus {
 }
 
 @media (hover: hover) {
+    .profile-photo .profile-photo-hover {
+        background: url("../assets/li-zhang-hover.webp") center / cover no-repeat;
+    }
+
     .profile-photo:hover .profile-photo-original {
         opacity: 0;
     }
@@ -341,6 +345,7 @@ a:focus {
 }
 
 .publication-preview > .publication-image,
+.publication-preview noscript .publication-image,
 .publication-video .publication-image {
     position: absolute;
     inset: 0;
