@@ -1,23 +1,44 @@
 // Load and play previews only while visible to avoid decoding every video at once.
 const publicationVideos = document.querySelectorAll('.publication .publication-preview:not([data-hover-preview]) video');
 const visibleVideos = new Set();
+const pendingPreviews = new Map();
+const minimumVisibleRatio = 0.25;
+const previewDelayMs = 200;
+
+const playPreview = (video, source) => {
+    if (source) {
+        source.src = source.dataset.src;
+        source.removeAttribute('data-src');
+        video.load();
+    }
+    video.muted = true;
+    video.play().then(() => {
+        if (document.hidden || !visibleVideos.has(video)) video.pause();
+    }).catch(() => {});
+};
+
 const updatePreviewPlayback = () => {
     publicationVideos.forEach(video => {
         const shouldPlay = !document.hidden && visibleVideos.has(video);
         if (!shouldPlay) {
+            clearTimeout(pendingPreviews.get(video));
+            pendingPreviews.delete(video);
             video.pause();
             return;
         }
         const source = video.querySelector('source[data-src]');
-        if (source) {
-            source.src = source.dataset.src;
-            source.removeAttribute('data-src');
-            video.load();
+        if (!source) {
+            if (video.paused) playPreview(video);
+            return;
         }
-        video.muted = true;
-        video.play().then(() => {
-            if (document.hidden || !visibleVideos.has(video)) video.pause();
-        }).catch(() => {});
+        if (pendingPreviews.has(video)) return;
+
+        // Give fast scrolling a chance to pass a preview before requesting its MP4.
+        const timer = setTimeout(() => {
+            pendingPreviews.delete(video);
+            if (!document.hidden && visibleVideos.has(video)) playPreview(video, source);
+        }, previewDelayMs);
+        pendingPreviews.set(video, timer);
     });
 };
 const posterVideos = document.querySelectorAll('.publication-preview video[data-poster]');
@@ -37,12 +58,12 @@ if ('IntersectionObserver' in window) {
     posterVideos.forEach(video => posterObserver.observe(video));
 
     const previewObserver = new IntersectionObserver(entries => {
-        entries.forEach(({ target, isIntersecting }) => {
-            if (isIntersecting) visibleVideos.add(target);
+        entries.forEach(({ target, intersectionRatio }) => {
+            if (intersectionRatio >= minimumVisibleRatio) visibleVideos.add(target);
             else visibleVideos.delete(target);
         });
         updatePreviewPlayback();
-    }, { threshold: 0 });
+    }, { threshold: minimumVisibleRatio });
     publicationVideos.forEach(video => previewObserver.observe(video));
     document.addEventListener('visibilitychange', updatePreviewPlayback);
 } else {
